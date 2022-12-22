@@ -9,19 +9,21 @@ function Footer() {
   const [email, setEmail] = useState('');
 
   return (
-    <footer className="py-4 px-16 w-screen h-60 bg-lavender-indigo absolute bottom-0 left-0">
+    <footer className="sm:py-4 px-2 sm:px-16 w-screen h-60 bg-lavender-indigo absolute bottom-0 left-0">
       <div className="flex justify-between items-center w-full h-full">
-        <div className="flex flex-col justify-evenly w-4/12 h-full">
+        <div className="flex flex-col justify-evenly lg:w-6/12 h-full">
           <div>
-            <h2 className="text-start font-medium text-4xl mb-4">Subscribe</h2>
+            <h2 className="text-start font-medium text-4xl sm:mb-4">
+              Subscribe
+            </h2>
             <p className="text-start text-xl text-black/[0.65]">
               We’ll never spam you or share your email
             </p>
           </div>
-          <div className="flex border-2 rounded border-pale-spring-bud w-fit">
+          <div className="flex border-2 rounded border-pale-spring-bud w-full md:w-fit">
             <input
               type="text"
-              className="text-xl pl-4 focus:outline-lavender-indigo"
+              className="text-xl pl-4 focus:outline-lavender-indigo w-[calc(100%-60px)]"
               placeholder="Enter your e-mail"
               value={email}
               onChange={(event) => setEmail(() => event.target.value)}
@@ -31,8 +33,8 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-evenly items-center w-4/12 h-full">
-          <div className="flex justify-between pt-4 text-xl w-full text-black/[0.65]">
+        <div className="flex flex-col justify-evenly items-center w-6/12 md:w-5/12 lg:w-4/12 h-full">
+          <div className="flex flex-col md:flex-row justify-between pt-4 text-xl w-full text-black/[0.65]">
             <NavLink to="/home" className="hover:text-black focus:text-black">
               Home
             </NavLink>
@@ -49,7 +51,7 @@ function Footer() {
               Contact
             </NavLink>
           </div>
-          <div className="flex justify-evenly  py-4 w-6/12">
+          <div className="flex justify-evenly  py-4 w-6/12 w-fit bg-red-500">
             <a
               href="#twitter"
               className="hover:scale-110 focus:scale-110"
