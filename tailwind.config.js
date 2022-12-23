@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       colors: {
         'lavender-indigo': '#8A4FFF',
-        vodka: '#C3BEF7',
+        "vodka": '#C3BEF7',
         'pale-spring-bud': '#EAF8BF',
         'wild-strawberry': '#FF36AB',
         'maastricht-blue': '#0B132B',

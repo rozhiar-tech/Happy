@@ -35,23 +35,23 @@ function Footer() {
         </div>
         <div className="flex flex-col justify-evenly items-center w-6/12 md:w-5/12 lg:w-4/12 h-full">
           <div className="flex flex-col md:flex-row justify-between pt-4 text-xl w-full text-black/[0.65]">
-            <NavLink to="/home" className="hover:text-black focus:text-black">
+            <NavLink to="/home" className="hover:text-white focus:text-black font-semibold">
               Home
             </NavLink>
-            <NavLink to="/blogs" className="hover:text-black focus:text-black">
+            <NavLink to="/blogs" className="hover:text-white focus:text-black font-semibold">
               Blogs
             </NavLink>
-            <NavLink to="/about" className="hover:text-black focus:text-black">
+            <NavLink to="/about" className="hover:text-white focus:text-black font-semibold">
               About
             </NavLink>
             <NavLink
               to="/contact"
-              className="hover:text-black focus:text-black"
+              className="hover:text-white focus:text-black font-semibold"
             >
               Contact
             </NavLink>
           </div>
-          <div className="flex justify-evenly  py-4 w-6/12 w-fit bg-red-500">
+          <div className="flex justify-evenly  py-4 w-6/12 ">
             <a
               href="#twitter"
               className="hover:scale-110 focus:scale-110"
