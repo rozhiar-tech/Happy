@@ -11,7 +11,6 @@ const FirstSection = () => {
              <p  className="  text-xl font-semibold">We are Here To Make you <span className="happy">Happy</span></p> 
              <p  className="  text-4xl font-bold">Happy</p> 
         </div>
-
              <img src={therapy} alt="therapy" className="mr-auto"/>
         </div>
     );
