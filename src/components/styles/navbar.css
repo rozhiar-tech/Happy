@@ -3,7 +3,14 @@
     background-color: #C3BEF7;
     border-bottom-style: solid;
     border-bottom-color: #fff;
-    border-bottom-width: 2px;
+
+    
+  }
+  .navbar img{
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+
   }
   
   .navbar a {

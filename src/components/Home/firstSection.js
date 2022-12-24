@@ -1,7 +1,7 @@
 
 import React from "react";
-import "./styles/firstSection.css";
-import therapy from "../assets/therapy.svg";
+import "../styles/firstSection.css";
+import therapy from "../../assets/therapy.svg";
 
 
 const FirstSection = () => {

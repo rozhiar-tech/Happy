@@ -1,15 +1,13 @@
 import React from "react";
-import FirstSection from "../components/firstSection";
-import Footer from "../components/Footer/Footer";
-import Navbar from "../components/navbar"
+import FirstSection from "../components/Home/firstSection";
+import SecondSection from "../components/Home/secondSection";
 
 
 function Home() {
   return (
     <div>
-      <Navbar/>
       <FirstSection/>
-      <Footer />
+      <SecondSection/>
     </div>
   );
 }
