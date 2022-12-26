@@ -1,0 +1,20 @@
+.fourth {
+background: #EAF8F9;
+height: 900px;
+}
+
+
+.header {
+    margin-right: 70%;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 250px;
+}
+
+.image-container img {
+    margin-left: 5px;
+    margin-right: 5px;
+}
