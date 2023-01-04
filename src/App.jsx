@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Home/navbar"
-import Fourthsection from "./components/Home/fourthsection"
+
 
 import './App.css';
 
@@ -22,7 +22,7 @@ function App() {
           <Route path="/contact" element="" />
           <Route path="/login" element="" />
         </Routes>
-        <Fourthsection />
+        
       <Footer />
 
       </BrowserRouter>
