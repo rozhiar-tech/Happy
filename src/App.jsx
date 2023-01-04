@@ -3,16 +3,14 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Home/navbar"
-
-
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Navbar/>
-      
+        <Navbar />
+
         {/* Insert navbar Component here */}
         <Routes>
           {/* When components are created, insert them in element */}
@@ -22,9 +20,7 @@ function App() {
           <Route path="/contact" element="" />
           <Route path="/login" element="" />
         </Routes>
-        
       <Footer />
-
       </BrowserRouter>
     </div>
   );
