@@ -4,6 +4,7 @@ import Home from './pages/home';
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Home/navbar"
 import './App.css';
+import About from './pages/about'
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           {/* When components are created, insert them in element */}
           <Route path="/" element={<Home />} />
           <Route path="/blogs" element="" />
-          <Route path="/about" element="" />
+          <Route path="/about" element={<About />} />
           <Route path="/contact" element="" />
           <Route path="/login" element="" />
         </Routes>
