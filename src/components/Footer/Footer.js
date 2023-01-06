@@ -9,7 +9,7 @@ function Footer() {
   const [email, setEmail] = useState('');
 
   return (
-    <footer className="sm:py-4 px-6 sm:px-16 bg-lavender-indigo relative bottom-0 left-0 break-words w-screen h-fit sm:h-60">
+    <footer className="sm:py-4 px-4 sm:px-16 bg-lavender-indigo relative bottom-0 left-0 break-words w-screen h-fit sm:h-60">
       <div className="flex justify-between items-center w-full h-full">
         <div className="flex flex-col justify-evenly w-6/12 h-full">
           <div>
