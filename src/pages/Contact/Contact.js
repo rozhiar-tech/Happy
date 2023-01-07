@@ -1,23 +1,14 @@
 import React, { useState } from 'react';
-import image from '../assets/contact.svg';
+import image from './contact.svg';
+import { inquiries } from './inquiries.data';
 
 function Contact() {
   const [formInput, setFormInput] = useState({
-    'contact-type': 'I have a question about the service.',
+    inquiries: 'I have a question about the service.',
     fullName: '',
     email: '',
     details: '',
   });
-
-  const contactType = [
-    'I have a question about the service.',
-    "I'm a registered client and I need support.",
-    "I'm a counselor interested in joining.",
-    "I'm a registered counselor and I need support.",
-    'I have a business-related inquiry.',
-    "I'm interested in Healing Online for my organization.",
-    'I have a billing related question.',
-  ];
 
   function handleFormInput(e) {
     const { name, value } = e.target;
@@ -27,7 +18,7 @@ function Contact() {
   }
 
   function isChecked(value) {
-    return value === formInput['contact-type'];
+    return value === formInput.inquiries;
   }
 
   function handleSubmit(e) {
@@ -48,9 +39,9 @@ function Contact() {
         </p>
       </div>
       <form className="w-full py-4" onSubmit={handleSubmit}>
-        <div className="contact-type flex flex-col">
-          <h2 className="text-2xl">Type of Contact</h2>
-          {contactType.map((value, index) => {
+        <div className="inquiries flex flex-col">
+          <h2 className="text-2xl">Inquiries</h2>
+          {inquiries.map((value, index) => {
             return (
               <label
                 key={value}
@@ -60,7 +51,7 @@ function Contact() {
                 <input
                   type="radio"
                   id={`type${index + 1}`}
-                  name="contact-type"
+                  name="inquiries"
                   value={value}
                   className="mr-2"
                   checked={isChecked(value)}
