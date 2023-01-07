@@ -6,6 +6,7 @@
 }
 .header{
     position: absolute;
+    margin-top: 40%;
     width: 362px;
     height: 75px;
     left: 164px;
@@ -21,4 +22,5 @@
 .topd{
     position:absolute;
     top: 1690px;
+    margin-top: 40%;
 }

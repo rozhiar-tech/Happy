@@ -9,6 +9,7 @@ module.exports = {
         'pale-spring-bud': '#EAF8BF',
         'wild-strawberry': '#FF36AB',
         'maastricht-blue': '#0B132B',
+        'light-blue': '#EAF8F9',
       },
     },
   },
