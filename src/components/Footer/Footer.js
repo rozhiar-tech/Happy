@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { ReactComponent as Subscribe } from './Subscribe.svg';
-import { ReactComponent as Twitter } from './Twitter.svg';
-import { ReactComponent as Facebook } from './Facebook.svg';
-import { ReactComponent as Google } from './Google.svg';
+import { ReactComponent as Subscribe } from './subscribe.svg';
+import { ReactComponent as Twitter } from './twitter.svg';
+import { ReactComponent as Facebook } from './facebook.svg';
+import { ReactComponent as Google } from './google.svg';
 
 function Footer() {
   const [email, setEmail] = useState('');
