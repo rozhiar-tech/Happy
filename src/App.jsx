@@ -23,6 +23,9 @@ function App() {
           <Route path="/blogs" element="" />
           <Route path="/about" element="" />
           <Route path="/contact" element="" />
+
+
+          
           <Route path="/login" element={<Login/>} />
           <Route path="/signup" element={<Signup/>} />
         </Routes>
