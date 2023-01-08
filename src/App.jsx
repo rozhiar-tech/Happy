@@ -1,10 +1,12 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Home/navbar"
 import './App.css';
 import About from './pages/about'
+ import Payment from "./pages/Payment/Payment";
+ import Afterpayment from './pages/AfterPayment/AfterPayment';
 
 function App() {
   return (
@@ -18,7 +20,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/blogs" element="" />
           <Route path="/about" element={<About />} />
-          <Route path="/contact" element="" />
+          <Route path="/redirect" element={<Navigate to="/payment" />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/redirect" element={<Navigate to="/afterpayment" />} />
+          <Route path="/afterpayment" element={<Afterpayment />} />
           <Route path="/login" element="" />
         </Routes>
       <Footer />
