@@ -2,8 +2,8 @@
 import { useState } from "react";
 import { useNavigate  } from "react-router-dom";
 import { getAuth ,createUserWithEmailAndPassword } from "firebase/auth";
-import app from "../firebase/firebaseinit";
-import therapy from "../assets/therapy.svg";
+import app from "../../firebase/firebaseinit";
+import therapy from "./therapy.svg";
 
 
 const auth = getAuth(app);
