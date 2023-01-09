@@ -15,7 +15,7 @@ function FifthSection() {
           <h2 className="text-[3.12rem] leading-[4.7rem]">5 TICKETS</h2>
           <p className="text-[2.2rem] leading-[3.3rem]">10$</p>
           <NavLink
-            to="purchase/5"
+            to="/contact"
             className="text-2xl leading-[2.25rem] bg-lavender-indigo px-[2rem] py-[0.75rem] hover:scale-95 hover:bg-vodka focus:scale-95 focus:bg-vodka rounded-md max-w-full w-fit self-center"
           >
             PURCHASE
@@ -25,7 +25,7 @@ function FifthSection() {
           <h2 className="text-[3.12rem] leading-[4.7rem]">25 TICKETS</h2>
           <p className="text-[2.2rem] leading-[3.3rem]">40$</p>
           <NavLink
-            to="purchase/25"
+            to="/contact"
             className="text-2xl leading-[2.25rem] bg-lavender-indigo px-[2rem] py-[0.75rem] hover:scale-95 hover:bg-vodka focus:scale-95 focus:bg-vodka rounded-md max-w-full w-fit self-center"
           >
             PURCHASE
@@ -35,7 +35,7 @@ function FifthSection() {
           <h2 className="text-[3.12rem] leading-[4.7rem]">50 TICKETS</h2>
           <p className="text-[2.2rem] leading-[3.3rem]">70$</p>
           <NavLink
-            to="purchase/50"
+            to="/contact"
             className="text-2xl leading-[2.25rem] bg-lavender-indigo px-[2rem] py-[0.75rem] hover:scale-95 hover:bg-vodka focus:scale-95 focus:bg-vodka rounded-md max-w-full w-fit self-center"
           >
             PURCHASE
