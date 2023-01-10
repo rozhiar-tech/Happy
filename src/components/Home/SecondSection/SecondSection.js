@@ -1,19 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './secondSection.css';
 import image from './section2.png';
 
 const SecondSection = () => {
   return (
     <div className="style bg-lavender-indigo/30 px-2 lg:px-[10.25rem] w-screen break-words py-24">
-      <div className="one">
+      <div className="text-[3.12rem] leading-[4.7rem]">
         <h1>PROFESSIONAL, LICENSED, AND VETTED</h1>
         <h1>THERAPISTS THAT YOU CAN TRUST</h1>
       </div>
 
-      <img src={image} alt="pictureof" className="im" />
+      <img src={image} alt="pictureof" className="my-8" />
 
-      <div className="second">
+      <div className="text-xl leading-[1.875] font-light text-black/[0.87]">
         <p>
           Tap into the world&apos;s largest network of licensed, accredited, and
           experienced therapists who can help you with a range of issues
