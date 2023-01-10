@@ -3,7 +3,7 @@ import therapy from './therapy.svg';
 
 const FirstSection = () => {
   return (
-    <div className="first bg-vodka break-words px-4 sm:px-16 lg:px-[10.25rem] pt-[5.38rem] w-screen h-fit min-h-[46.6rem]">
+    <div className="bg-vodka break-words px-4 sm:px-16 lg:px-[10.25rem] pt-[5.38rem] w-screen h-fit min-h-[46.6rem]">
       <div className="flex flex-col md:flex-row justify-between">
         <div className="flex flex-col justify-center text-center">
           <p className="text-4xl leading-[3.28rem]">We are Here To Make you</p>
