@@ -4,7 +4,7 @@ import image from './section2.png';
 
 const SecondSection = () => {
   return (
-    <div className="style bg-lavender-indigo/30 px-4 sm:px-16 lg:px-[10.25rem] py-24 break-words w-screen">
+    <div className="style bg-pale-spring-bud px-4 sm:px-16 lg:px-[10.25rem] py-24 break-words w-screen">
       <div className="text-[3.12rem] leading-[4.7rem]">
         <h1>PROFESSIONAL, LICENSED, AND VETTED</h1>
         <h1>THERAPISTS THAT YOU CAN TRUST</h1>
@@ -25,7 +25,7 @@ const SecondSection = () => {
       <div>
         <NavLink
           to="/booking"
-          className="bg-lavender-indigo hover:bg-wild-strawberry/70 hover:scale-95 focus:bg-wild-strawberry/70 focus:scale-95 text-white font-bold py-2 px-4 rounded w-fit max-w-full mt-6"
+          className="bg-lavender-indigo hover:bg-wild-strawberry/70 hover:scale-95 focus:bg-wild-strawberry/70 focus:scale-95 text-white font-bold py-2 px-4 rounded ease-in-out duration-300 w-fit max-w-full mt-6"
           type="button"
         >
           Book An Appointment
