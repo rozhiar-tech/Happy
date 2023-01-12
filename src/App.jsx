@@ -13,7 +13,7 @@ import Team from './pages/Team/team';
 
 function App() {
   return (
-    <div className="App">
+    <div className="flex flex-col min-h-screen">
       <BrowserRouter>
         <Navbar />
         <Routes>
