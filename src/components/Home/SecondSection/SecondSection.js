@@ -4,7 +4,7 @@ import image from './section2.png';
 
 const SecondSection = () => {
   return (
-    <div className="style bg-lavender-indigo/30 px-4 sm:px-16 lg:px-[10.25rem] w-screen break-words py-24">
+    <div className="style bg-lavender-indigo/30 px-4 sm:px-16 lg:px-[10.25rem] py-24 break-words w-screen">
       <div className="text-[3.12rem] leading-[4.7rem]">
         <h1>PROFESSIONAL, LICENSED, AND VETTED</h1>
         <h1>THERAPISTS THAT YOU CAN TRUST</h1>
