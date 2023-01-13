@@ -1,0 +1,21 @@
+
+.tableC{
+    margin:15%;
+}
+.header{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 47px;
+    text-transform: uppercase;
+    margin:2%;
+}
+.h3{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 26px;
+    margin:2%;
+}
