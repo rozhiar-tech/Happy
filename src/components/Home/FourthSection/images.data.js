@@ -1,38 +1,41 @@
+import technologyBlog from './technology_blog.svg';
+import traumaBlog from './trauma_blog.svg';
+
 export const data = [
-    {
-      id: 1,
-      img: 'https://preply.com/wp-content/uploads/2018/04/mi-pham-223464.jpg',
-    },
-    {
-        id: 2,
-        img: 'https://preply.com/wp-content/uploads/2018/04/mi-pham-223464.jpg',
-      },
-      {
-        id: 3,
-        img: 'https://preply.com/wp-content/uploads/2018/04/mi-pham-223464.jpg',
-      },
-      {
-        id: 4,
-        img: 'https://preply.com/wp-content/uploads/2018/04/mi-pham-223464.jpg',
-      },
-      {
-        id: 5,
-        img: 'https://preply.com/wp-content/uploads/2018/04/mi-pham-223464.jpg',
-      },
-      {
-        id: 6,
-        img: 'https://preply.com/wp-content/uploads/2018/04/mi-pham-223464.jpg',
-      },
-      {
-        id: 7,
-        img: 'https://preply.com/wp-content/uploads/2018/04/mi-pham-223464.jpg',
-      },
-      {
-        id: 8,
-        img: 'https://preply.com/wp-content/uploads/2018/04/mi-pham-223464.jpg',
-      },
-      {
-        id: 9,
-        img: 'https://preply.com/wp-content/uploads/2018/04/mi-pham-223464.jpg',
-      },
-    ];
+  {
+    id: 1,
+    img: technologyBlog,
+  },
+  {
+    id: 2,
+    img: traumaBlog,
+  },
+  {
+    id: 3,
+    img: technologyBlog,
+  },
+  {
+    id: 4,
+    img: traumaBlog,
+  },
+  {
+    id: 5,
+    img: technologyBlog,
+  },
+  {
+    id: 6,
+    img: traumaBlog,
+  },
+  {
+    id: 7,
+    img: technologyBlog,
+  },
+  {
+    id: 8,
+    img: traumaBlog,
+  },
+  {
+    id: 9,
+    img: technologyBlog,
+  },
+];
