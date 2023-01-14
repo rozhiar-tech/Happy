@@ -10,6 +10,7 @@ import Login from './pages/Login/Login';
 import Signup from './pages/SignUp/SignUp';
 import About from './pages/About/About';
 import Team from './pages/Team/team';
+import Issue from "./pages/rama-issue/issue";
 
 function App() {
   return (
@@ -24,9 +25,10 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/afterpayment" element={<AfterPayment />} />
-          <Route path="/login" element=<Login /> />
-          <Route path="/signup" element=<Signup /> />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/issue" element={<Issue />} />
         </Routes>
         <Footer />
       </BrowserRouter>
