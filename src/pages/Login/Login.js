@@ -33,10 +33,10 @@ function Login() {
   };
 
   return (
-    <div className="h-screen bg-vodka flex justify-evenly ">
+    <div className="h-screen bg-vodka flex  lg:flex lg:justify-evenly md:flex-row md:justify-evenly  flex-col items-center  w-screen ">
     
 
-      <div className="bg-white h-[500px] w-[470px] rounded-lg m-24 shadow-lg px-11 flex justify-between  ">
+      <div className="bg-white h-[500px] w-[470px] rounded-lg md:m-24 shadow-lg px-11 flex justify-between  ">
       <form onSubmit={handleSubmit} className="flex flex-col  justify-evenly">
       <input
             placeholder="Email"
@@ -65,7 +65,7 @@ function Login() {
         </div>
       </form>
       </div>  
-      <img src={therapy} alt="therapy" className="h-3/6 mt-14 "/>
+      <img src={therapy} alt="therapy" className="md:h-3/6 mt-14 h-[25%] mb-14"/>
     
     </div>
   );

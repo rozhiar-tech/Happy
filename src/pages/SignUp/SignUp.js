@@ -4,7 +4,7 @@ import { useNavigate  } from "react-router-dom";
 import { getAuth ,createUserWithEmailAndPassword } from "firebase/auth";
 import {  setDoc, getFirestore,doc } from "firebase/firestore";
 import app from "../../firebase/firebaseinit";
-import signupImage from "./SignupImage.svg";
+import signupImage from "./SignupImag.png";
 
 
 const auth = getAuth(app);
@@ -57,10 +57,10 @@ function SignUp(){
                 case "(auth/email-already-in-use).":
                     setError("The email address is already in use by another account.");
                     break;
-                case "The email address is badly formatted.":
+                case "(auth/invalid-email).":
                     setError("The email address is badly formatted.");
                     break;
-                case "The password must be 6 characters long or more.":
+                case "(auth/weak-password).":
                     setError("The password must be 6 characters long or more.");
                     break;
                 default:
@@ -80,14 +80,15 @@ function SignUp(){
     
     
     return (
-        <div className="h-screen bg-vodka flex justify-evenly">
-        <img src={signupImage} alt="therapy" className="h-3/6 mt-14 "/>
+        <div className="h-screen bg-vodka flex  lg:flex lg:justify-evenly md:flex-row md:justify-evenly  flex-col items-center w-screen">
+        <img src={signupImage} alt="therapy" className="md:h-3/6 mt-14 h-[25%] w-[60%] "/>
             
 
-            <div className="bg-white h-[500px] w-[550px] rounded-lg m-24 shadow-lg px-11 flex justify-between ">
+            <div className="bg-white h-[500px] w-[500px] rounded-lg md:m-24 shadow-lg px-11 flex justify-between mb-10 ">
             <form onSubmit={handleSubmit} className="flex flex-col  justify-evenly">
                 <div className="flex  justify-evenly">
                 <input
+                    required
                     placeholder="First Name"
                     type="text"
                     value={firstName}
@@ -95,6 +96,7 @@ function SignUp(){
                     className=" w-48 h-[65px] p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md mr-7"
                 />
                 <input
+                    required
                     placeholder="Last Name"
                     type="text"
                     value={lastName}
@@ -103,6 +105,7 @@ function SignUp(){
                 />
                     </div>
                     <input
+                    required
                     placeholder="Email"
                     type="email"
                     value={email}
@@ -110,6 +113,7 @@ function SignUp(){
                     className=" w-full h-[65px] p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md "
                 />
                 <input
+                    required
                     placeholder="Confirm Email"
                     type="email"
                     value={confirmEmail}
@@ -118,6 +122,7 @@ function SignUp(){
                 />
                 <div className="flex justify-between">
                 <input
+                    required
                     placeholder="Password"
                     type="password"
                     value={password}
@@ -126,6 +131,7 @@ function SignUp(){
 
                 />
                 <input
+                    required
                     placeholder="Confirm Password"
                     type="password"
                     value={confirmPassword}
@@ -139,6 +145,7 @@ function SignUp(){
                 
                  <input type="date" className="w-48 h-[65px] p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md" 
                     value={birthDate}
+                    required
                     onChange={(e) => setBirthDate(e.target.value)}
 
                  />
@@ -151,7 +158,7 @@ function SignUp(){
                 </button>
                 <button
                     type="submit"
-                    className="bg-lavender-indigo hover:bg-wild-strawberry/70 focus:bg-wild-strawberry/70 hover:scale-95 focus:scale-95 text-white rounded p-4 h-[60px] w-[186px] self-center"
+                    className="bg-lavender-indigo hover:bg-wild-strawberry/70 focus:bg-wild-strawberry/70 hover:scale-95 focus:scale-95 text-white rounded p-4 h-[60px] w-[186px] self-center active:bg-violet-700"
                     disabled={loading}
                     >
                     Sign Up
