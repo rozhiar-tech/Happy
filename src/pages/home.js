@@ -1,14 +1,19 @@
+
 import React from 'react';
-import CareerPart2 from '../components/Home/CareerPart2';
-import FirstSection from '../components/Home/firstSection';
-import SecondSection from '../components/Home/secondSection';
+import FirstSection from '../components/Home/FirstSection/FirstSection.js';
+import SecondSection from '../components/Home/SecondSection/SecondSection.js';
+import ThirdSection from '../components/Home/ThirdSection/ThirdSection.js';
+import FourthSection from '../components/Home/FourthSection/FourthSection.js';
+import FifthSection from '../components/Home/FifthSection.js';
 
 function Home() {
   return (
     <div>
       <FirstSection />
       <SecondSection />
-      <CareerPart2/>
+      <ThirdSection />
+      <FourthSection />
+      <FifthSection />
     </div>
   );
 }
