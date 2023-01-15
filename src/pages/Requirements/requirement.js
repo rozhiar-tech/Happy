@@ -1,14 +1,14 @@
 import React from 'react';
-import "./issue.css";
+import "./requirement.css";
 import { useNavigate } from 'react-router-dom';
-import Pic from "./Group2.jpg";
+import image from "./requirementimg.jpg";
 
 const Issue = () => {
   const navigate2 = useNavigate();
   return (
-    <div>
+    <div className='requirements'>
     <div className="text">
-      <img alt="/" src={Pic} className="image1"/>
+      <img alt="Therapy" src={image} className="image1"/>
       <h3 className="text1">Why work with Healing?</h3>
       <h4 className='text2'>Reliable Income
       <section className='text5'>Over 10,000 people sign up on 
