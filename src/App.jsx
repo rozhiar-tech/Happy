@@ -10,8 +10,10 @@ import Login from './pages/Login/Login';
 import Signup from './pages/SignUp/SignUp';
 import About from './pages/About/About';
 import Team from './pages/Team/team';
+import Career from './pages/Career/Career';
 import TherapistAccount from './pages/TherpistAccountCreate/TherapistAccount';
 import ThankYou from './pages/TherpistAccountCreate/ThankYou';
+
 
 function App() {
   return (
@@ -26,11 +28,13 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/afterpayment" element={<AfterPayment />} />
-          <Route path="/login" element=<Login /> />
-          <Route path="/signup" element=<Signup /> />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/career" element={<Career />} />
           <Route path="/TherapistAccount" element={<TherapistAccount />} />
           <Route path="/ThankYou" element={<ThankYou />} />
+
 
         </Routes>
         <Footer />
