@@ -10,7 +10,7 @@ import Login from './pages/Login/Login';
 import Signup from './pages/SignUp/SignUp';
 import About from './pages/About/About';
 import Team from './pages/Team/team';
-import Resources from './pages/Resources/Resources';
+
 
 function App() {
   return (
