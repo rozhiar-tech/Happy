@@ -14,6 +14,7 @@ import Career from './pages/Career/Career';
 import TherapistAccount from './pages/TherpistAccountCreate/TherapistAccount';
 import ThankYou from './pages/TherpistAccountCreate/ThankYou';
 import Resources from './pages/Resources/Resources';
+import Card from "./pages/new-card/card";
 
 
 
@@ -37,7 +38,7 @@ function App() {
           <Route path="/TherapistAccount" element={<TherapistAccount />} />
           <Route path="/ThankYou" element={<ThankYou />} />
           <Route path="/resources" element={<Resources />} />
-
+          <Route path="/card" element={<Card />} />
 
         </Routes>
         <Footer />
