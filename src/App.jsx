@@ -15,6 +15,7 @@ import TherapistAccount from './pages/TherpistAccountCreate/TherapistAccount';
 import ThankYou from './pages/TherpistAccountCreate/ThankYou';
 
 
+
 function App() {
   return (
     <div className="flex flex-col min-h-screen w-screen">
