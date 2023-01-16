@@ -11,7 +11,6 @@ module.exports = {
         'maastricht-blue': '#0B132B',
         'light-blue': '#EAF8F9',
         'light-green': '#6BD24D',
-        'orange': '#FEE89E',
       },
     },
   },
