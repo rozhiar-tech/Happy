@@ -43,9 +43,6 @@ line-height: 75px;}
 }
 
 .image1{
-    max-width: 425px;
-    max-height: 286px;
-    align-self: flex-end ;
-    justify-self: flex-end;
+    max-width: 200px;
 }
 
