@@ -1,7 +1,7 @@
-.image1{
-    max-width: 200px;
-    max-height: 200px;
-    float: right;
+.requirements{
+    display: flex;
+    margin-left: 40px;
+    flex-wrap: wrap;
 }
 
 .text1{
@@ -11,7 +11,7 @@ line-height: 75px;
 
 .text2{
     font-size: 20px;
-line-height: 30px;
+    line-height: 30px;
 }
 
 .text5{
@@ -21,24 +21,31 @@ line-height: 30px;
 
 .text6{
     font-size: 20px;
-    line-height: 30px;
-margin-left: 60px;
-}
+    line-height: 30px;}
 
 .text7{
     font-size: 50px;
-line-height: 75px;
-margin-left: 60px;
-}
+line-height: 75px;}
 
 .important{
-    margin-left: 60px;
     list-style-type: disc;
-    color: rgba(0, 0, 0, 0.54);
-}
+    color: rgba(0, 0, 0, 0.54);}
 
 #button2{
     margin-left: 60px;
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 40px;}
+
+@media (max-width: 800px) {
+    .requirements{
+        flex-direction: column;
+    }
 }
+
+.image1{
+    max-width: 425px;
+    max-height: 286px;
+    align-self: flex-end ;
+    justify-self: flex-end;
+}
+
