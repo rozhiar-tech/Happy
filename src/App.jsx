@@ -12,6 +12,7 @@ import About from './pages/About/About';
 import Team from './pages/Team/team';
 import TherapistAccount from './pages/TherpistAccountCreate/TherapistAccount';
 import ThankYou from './pages/TherpistAccountCreate/ThankYou';
+import NormalUser from './pages/editProfile/normalUser';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/team" element={<Team />} />
           <Route path="/TherapistAccount" element={<TherapistAccount />} />
           <Route path="/ThankYou" element={<ThankYou />} />
+          <Route path="/editprofile" element={<NormalUser/>} />
 
         </Routes>
         <Footer />
