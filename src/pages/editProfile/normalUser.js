@@ -1,5 +1,11 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import {  setDoc, getFirestore,doc } from "firebase/firestore";
+import { getAuth  } from "firebase/auth";
+import app from "../../firebase/firebaseinit";
+
+const auth = getAuth(app);
+const db = getFirestore(app);
 
  function NormalUser() {
     const [firstName, setFirstName] = useState("");
@@ -13,17 +19,54 @@ import { useState } from "react";
     const [confirmPassword, setConfirmPassword] = useState("");
     const [password, setPassword] = useState("");
     const [phone, setPhone] = useState("");
+    const [user , setUser] = useState(null);
+    const [error, setError] = useState("");
 
-    function handleSubmit(e) {
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((userr) => {
+            if (userr) {
+                setUser(userr.uid);
+            } else {
+                setUser(null);
+            }
+        });
+
+        return unsubscribe;
+    }, []);
+
+    async function handleSubmit (e) {
         e.preventDefault();
-        
-        
+
+        const data = {
+            firstName,
+            lastName,
+            Hobbies,
+            EducationalLevel,
+            familySize,
+            gender,
+            birthDate,
+            email,
+            password,
+            phone,
+        };
+
+        await setDoc(doc(db, "Users", user), {
+            data,
+        }).then(() => {
+            alert("Profile Updated");
+        }
+        ).catch((errorr) => {
+            setError(errorr.message);
+        });
+
+
     }
     
     return (
         <div className="h-[1500px] w-screen bg-slate-300">
             <div className="flex flex-col items-center">
                 <h2 className="text-xl  text-red-600 mt-6">Please fill all the fields with correct and valid details to complete your profile.</h2>
+                {error && <h2 className="text-xl  text-red-600 mt-6">{error}</h2>}
                 <div className="flex gap-36 mt-5">
                     <div className="bg-black rounded-full h-40">
                         <img className="h-40 w-40 rounded-full" src="https://profile-icon-png-image-free-download-searchpngcom-profile-icon-png-673_673.png" alt="profile" />
@@ -118,8 +161,8 @@ import { useState } from "react";
 
                             <div className="flex gap-[30px] items-center">
                             <button type="submit" className="bg-lavender-indigo hover:bg-wild-strawberry/70 focus:bg-wild-strawberry/70 hover:scale-95 focus:scale-95 text-white  py-2 px-4 rounded mr-3 h-[60px] w-[186px] mt-7">Save Changes</button>
-                            <button type="submit" className="bg-lavender-indigo hover:bg-wild-strawberry/70 focus:bg-wild-strawberry/70 hover:scale-95 focus:scale-95 text-white  py-2 px-4 rounded mr-3 h-[60px] w-[186px] mt-7">Delete Account</button>
-                            <button type="submit" className="bg-lavender-indigo hover:bg-wild-strawberry/70 focus:bg-wild-strawberry/70 hover:scale-95 focus:scale-95 text-white  py-2 px-4 rounded mr-3 h-[60px] w-[186px] mt-7">Cancel</button>
+                            <button type="button" className="bg-lavender-indigo hover:bg-wild-strawberry/70 focus:bg-wild-strawberry/70 hover:scale-95 focus:scale-95 text-white  py-2 px-4 rounded mr-3 h-[60px] w-[186px] mt-7">Delete Account</button>
+                            <button type="button" className="bg-lavender-indigo hover:bg-wild-strawberry/70 focus:bg-wild-strawberry/70 hover:scale-95 focus:scale-95 text-white  py-2 px-4 rounded mr-3 h-[60px] w-[186px] mt-7">Cancel</button>
                             
                             </div>
                             
