@@ -12,7 +12,7 @@ import About from './pages/About/About';
 import Team from './pages/Team/team';
 import TherapistAccount from './pages/TherpistAccountCreate/TherapistAccount';
 import ThankYou from './pages/TherpistAccountCreate/ThankYou';
-import NormalUser from './pages/editProfile/normalUser';
+
 
 function App() {
   return (
