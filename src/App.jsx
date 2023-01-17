@@ -32,7 +32,6 @@ function App() {
           <Route path="/team" element={<Team />} />
           <Route path="/TherapistAccount" element={<TherapistAccount />} />
           <Route path="/ThankYou" element={<ThankYou />} />
-          <Route path="/editprofile" element={<NormalUser/>} />
 
         </Routes>
         <Footer />
