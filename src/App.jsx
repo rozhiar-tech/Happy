@@ -17,6 +17,7 @@ import ThankYou from './pages/TherpistAccountCreate/ThankYou';
 import Resources from './pages/Resources/Resources';
 
 
+
 function App() {
   return (
     <div className="flex flex-col min-h-screen w-screen">
