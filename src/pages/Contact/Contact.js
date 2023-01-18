@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import image from './contact.svg';
 import { inquiries } from './inquiries.data';
 
@@ -21,9 +22,25 @@ function Contact() {
     return value === formInput.inquiries;
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    // to store or send formInput
+
+    try {
+      await emailjs.send(
+        'service_6ec28wg',
+        'contactInfo_jpnijnd',
+        formInput,
+        'ZlNHx4VKV2bjEUvC5'
+      );
+      await emailjs.send(
+        'service_6ec28wg',
+        'contactSuccess_b7jcpv9',
+        formInput,
+        'ZlNHx4VKV2bjEUvC5'
+      );
+    } catch (error) {
+      console.log(error.text);
+    }
   }
 
   return (
