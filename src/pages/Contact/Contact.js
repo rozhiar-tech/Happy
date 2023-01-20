@@ -150,7 +150,7 @@ function Contact() {
               </div>
               <input
                 type="submit"
-                className="text-2xl leading-[2.25rem] bg-lavender-indigo px-[2rem] py-[0.75rem] hover:scale-[98%] hover:bg-vodka focus:scale-[98%] focus:bg-vodka rounded-md cursor-pointer w-fit mx-auto md:mx-0 mt-4"
+                className="text-2xl leading-[2.25rem] text-white bg-lavender-indigo hover:bg-wild-strawberry/70 hover:scale-95 focus:bg-wild-strawberry/70 focus:scale-95 rounded ease-in-out duration-300 px-[2rem] py-[0.75rem]  cursor-pointer w-fit mx-auto md:mx-0 mt-4"
               />
             </div>
           </form>
