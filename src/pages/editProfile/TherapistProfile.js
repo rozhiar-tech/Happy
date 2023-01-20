@@ -1,4 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { setDoc, getFirestore, doc } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+import app from '../../firebase/firebaseinit';
 import defaultPic from './defaultPic.svg';
 import editIcon from './editIcon.svg';
 
@@ -11,7 +14,33 @@ function TherapistProfile() {
     phoneNumber: '',
   });
   const [disabled, setDisabled] = useState(true);
+  const [isUpdated, setIsUpdated] = useState(false);
   const inputElement = useRef(null);
+
+  const [user, setUser] = useState(null);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((userr) => {
+      if (userr) {
+        setUser(userr.uid);
+      } else {
+        setUser(null);
+      }
+    });
+
+    return unsubscribe;
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsUpdated(() => false);
+    }, 4000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [isUpdated]);
 
   function handleFormInput(e) {
     const { name, value } = e.target;
@@ -20,13 +49,26 @@ function TherapistProfile() {
     });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    setDisabled(() => true);
+    try {
+      await setDoc(doc(db, 'Users', user), {
+        formInput,
+      });
+      setIsUpdated(() => 'Your Profile is Updated!');
+      setDisabled(() => true);
+    } catch (error) {
+      setIsUpdated(() => `An Error has occured: ${error.message}`);
+    }
   }
 
   return (
-    <div className="flex flex-col md:flex-row gap-4 px-4 sm:px-16 lg:px-[10.25rem] py-14 break-words w-screen">
+    <div className="relative flex flex-col md:flex-row gap-4 px-4 sm:px-16 lg:px-[10.25rem] py-14 break-words w-screen">
+      {isUpdated && (
+        <p className="absolute top-14 z-10 text-2xl leading-9 text-center border border-vodka rounded-md shadow-[0_4px_12px_4px] shadow-vodka/25 p-4 bg-white before:content-[''] before:absolute before:left-0 before:top-0 before:w-3 before:h-full before:bg-lavender-indigo before:rounded-l-md after:content-[''] after:absolute after:right-0 after:top-0 after:w-3 after:h-full after:bg-lavender-indigo after:rounded-r-md w-[calc(100vw-2rem)] sm:w-[calc(100vw-8rem)] lg:w-[calc(100vw-20.5rem)]">
+          Your Profile is Updated!
+        </p>
+      )}
       <div className="relative self-center md:self-start">
         <img src={defaultPic} alt="Profile" />
         <button
@@ -57,7 +99,7 @@ function TherapistProfile() {
               htmlFor="fullName"
               className="text-2xl leading-9 self-center min-w-0 w-48"
             >
-              Phone Number
+              Full Name
             </label>
             <input
               type="text"
