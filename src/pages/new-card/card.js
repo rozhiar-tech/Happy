@@ -1,55 +1,63 @@
 import React from "react";
 import "./card.css";
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
+import { datum } from "../Payment/image.data.";
 
 const Card = () => {
-//   const input = document.querySelector("#phone");
-//    const errorMsg = document.querySelector("#error-msg");
-//   const validMsg = document.querySelector("#valid-msg");
-// const errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
-// const iti = window.intlTelInput(input, {
-//   utilsScript: "../../build/js/utils.js?1638200991544"
-// });
-// const reset = () => {
-//   input.classList.remove("error");
-//   errorMsg.innerHTML = "";
-//   errorMsg.classList.add("hide");
-//   validMsg.classList.add("hide");
-// };
+  const slideLeft = () => {
+    const slider3 = document.getElementById('slider2');
+    slider3.scrollLeft -= 500;
+  };
 
-// input.addEventListener('blur', () => {
-//   reset();
-//   if (input.value.trim()) {
-//     if (iti.isValidNumber()) {
-//       validMsg.classList.remove("hide");
-//     } else {
-//       input.classList.add("error");
-//       const errorCode = iti.getValidationError();
-//       errorMsg.innerHTML = errorMap[errorCode];
-//       errorMsg.classList.remove("hide");
-//     }
-//   }
-// });
+  const slideRight = () => {
+    const slider4 = document.getElementById('slider2');
+    slider4.scrollLeft += 500;
+  };
 
-// input.addEventListener('change', reset);
-// input.addEventListener('keyup', reset);
+  const navigate = useNavigate();
+
   return (
-   <div className="Card">
-    <div className="Card1">
-        <h1 className="ca1">add card details</h1>
-        <p className="ca2">Please make sure all of the info you enter are the same as your card registration info.</p>  
+   <div className="Card-page">
+    <div className="Card">
+        <h1 className="ca1">Your saved cards</h1>
+        <p className="ca2">We only support cards as a payment method at the moment!</p>  
     </div>
-    <div className="dropdown1">
-  <button type="submit" className="dropbtn1">Dropdown</button>
-  <div className="dropdown-content1">
-    <a href="/">Link 1</a>
-    <a href="/">Link 2</a>
-    <a href="/">Link 3</a>
-  </div>
-</div>
-{/* <input id="phone" type="tel"/>
-<span id="valid-msg" className="hide">✓ Valid</span>
-<span id="error-msg" className="hide"/> */}
-   </div>
+    <div className="leader">
+          <div className="relative flex items-center">
+            <MdChevronLeft
+              className="opacity-50 cursor-pointer hover:opacity-100"
+              onClick={slideLeft}
+              size={40}
+            />
+            <div
+              id="slider3"
+              className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
+            >
+              {datum.map((item) => (
+                <img
+                  key={item.id}
+                  className="w-[220px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
+                  src={item.img}
+                  alt="/"
+                />
+              ))}
+            </div>
+
+            <MdChevronRight
+              className="opacity-50 cursor-pointer hover:opacity-100"
+              onClick={slideRight}
+              size={40}
+            />
+          </div>
+    </div>
+    <button
+            id="button1"
+            type="submit"
+            className="bg-lavender-indigo hover:bg-wild-strawberry/70 focus:bg-wild-strawberry/70 hover:scale-95 focus:scale-95 text-white rounded px-4 py-2"
+            onClick={() => navigate('/Afterpayment')}
+          > ADD NEW CARD </button>
+    </div>
   );
 };
 
