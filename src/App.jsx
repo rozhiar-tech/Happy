@@ -10,12 +10,13 @@ import Login from './pages/Login/Login';
 import Signup from './pages/SignUp/SignUp';
 import About from './pages/About/About';
 import Team from './pages/Team/team';
-import Career from './pages/Career/Career';
+import Requirements from './pages/Requirements/requirement';
+import Career from './pages/Career';
 import TherapistAccount from './pages/TherpistAccountCreate/TherapistAccount';
 import ThankYou from './pages/TherpistAccountCreate/ThankYou';
 import Resources from './pages/Resources/Resources';
 import Card from "./pages/new-card/card";
-
+import TherapistProfile from './pages/editProfile/TherapistProfile';
 
 
 function App() {
@@ -34,11 +35,13 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/requirements" element={<Requirements />} />
           <Route path="/career" element={<Career />} />
           <Route path="/TherapistAccount" element={<TherapistAccount />} />
           <Route path="/ThankYou" element={<ThankYou />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/card" element={<Card />} />
+          <Route path="/therapistProfile" element={<TherapistProfile />} />
 
         </Routes>
         <Footer />

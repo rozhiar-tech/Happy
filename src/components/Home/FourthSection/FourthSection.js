@@ -25,7 +25,7 @@ const FourthSection = () => {
         />
         <div
           id="slider"
-          className="flex gap-2 overflow-x-scroll whitespace-nowrap scroll-auto scroll-smooth scrollbar-hide"
+          className="flex gap-2 overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide"
         >
           {data.map((item) => (
             <img

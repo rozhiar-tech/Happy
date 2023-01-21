@@ -91,8 +91,16 @@ function Resources() {
       <div>
         <h2 className="text-[2rem] leading-[3rem] mb-4">Recommended for you</h2>
         <div className="flex flex-wrap gap-4">
-          <img src={traumaBlog} alt="Abstract illustration of a girl" />
-          <img src={anxietyBlog} alt="An anxious person" />
+          <img
+            src={traumaBlog}
+            alt="Abstract illustration of a girl"
+            className="cursor-pointer hover:scale-105 focus:scale-105 ease-in-out duration-300"
+          />
+          <img
+            src={anxietyBlog}
+            alt="An anxious person"
+            className="cursor-pointer hover:scale-105 focus:scale-105 ease-in-out duration-300"
+          />
         </div>
       </div>
     </div>
