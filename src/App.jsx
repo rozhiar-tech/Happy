@@ -10,13 +10,12 @@ import Login from './pages/Login/Login';
 import Signup from './pages/SignUp/SignUp';
 import About from './pages/About/About';
 import Team from './pages/Team/team';
-import Requirements from "./pages/Requirements/requirement";
+import Requirements from './pages/Requirements/requirement';
 import Career from './pages/Career';
 import TherapistAccount from './pages/TherpistAccountCreate/TherapistAccount';
 import ThankYou from './pages/TherpistAccountCreate/ThankYou';
 import Resources from './pages/Resources/Resources';
-
-
+import Chat from './components/Chat/Chat';
 
 function App() {
   return (
@@ -39,7 +38,7 @@ function App() {
           <Route path="/TherapistAccount" element={<TherapistAccount />} />
           <Route path="/ThankYou" element={<ThankYou />} />
           <Route path="/resources" element={<Resources />} />
-
+          <Route path="/chat" element={<Chat />} />
         </Routes>
         <Footer />
       </BrowserRouter>
