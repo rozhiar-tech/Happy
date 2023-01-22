@@ -38,7 +38,6 @@ function App() {
           <Route path="/TherapistAccount" element={<TherapistAccount />} />
           <Route path="/ThankYou" element={<ThankYou />} />
           <Route path="/resources" element={<Resources />} />
-          <Route path="/chat" element={<Chat />} />
         </Routes>
         <Footer />
       </BrowserRouter>
