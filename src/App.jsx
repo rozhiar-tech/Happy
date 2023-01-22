@@ -15,7 +15,6 @@ import Career from './pages/Career';
 import TherapistAccount from './pages/TherpistAccountCreate/TherapistAccount';
 import ThankYou from './pages/TherpistAccountCreate/ThankYou';
 import Resources from './pages/Resources/Resources';
-import Chat from './components/Chat/Chat';
 
 function App() {
   return (
