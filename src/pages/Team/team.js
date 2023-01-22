@@ -38,7 +38,7 @@ const ourTeam = [
 
 const Team = () => {
     return(
-        <div className="mt-24 mb-36 max-w-6xl mx-auto px-4">
+        <div data-testid="teamPage" className="mt-24 mb-36 max-w-6xl mx-auto px-4">
             <h1 className="md:text-4xl text-2xl mb-28 md:text-left  text-center">WE ARE CODING, NICE TO MEET YOU!</h1>
             <div>
                 <h4 className="text-gray-600 text-lg md:text-2xl mb-12 md:text-left  text-center">Meet the Team!</h4>

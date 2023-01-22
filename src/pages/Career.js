@@ -4,7 +4,7 @@ import CareerPart2 from '../components/Career/CareerPart2';
 
 function Career() {
   return (
-    <div className="w-full">
+    <div data-testid="career"className="w-full">
       <CareerPart1 />
       <CareerPart2 />
     </div>
