@@ -37,6 +37,7 @@ function App() {
           <Route path="/TherapistAccount" element={<TherapistAccount />} />
           <Route path="/ThankYou" element={<ThankYou />} />
           <Route path="/resources" element={<Resources />} />
+          
         </Routes>
         <Footer />
       </BrowserRouter>
