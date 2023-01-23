@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { doc, updateDoc, arrayUnion } from 'firebase/firestore';
 import { db } from '../../firebase/firebaseinit';
 import technologyBlog from './technology_blog.svg';
@@ -17,9 +18,16 @@ function Resources() {
       await updateDoc(newsletterRef, {
         emails: arrayUnion(email),
       });
+      await emailjs.send(
+        'service_3cra5kh',
+        'Subscribe_3l6ullq',
+        { email },
+        'x8DrSwr88UA2SW427'
+      );
       setSubStatus(() => 'Success');
     } catch (error) {
       setSubStatus(() => 'error');
+      console.log(error);
     }
   }
 
