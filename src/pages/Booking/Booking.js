@@ -4,6 +4,7 @@ import data from './booking.data';
 
 function Booking() {
   const [currentData, setCurrentData] = useState(data[0]);
+  // eslint-disable-next-line no-unused-vars
   const [answers, setAnswers] = useState({});
   const [isAnswered, setIsAnswered] = useState(false);
   const [isPrompt, setIsPrompt] = useState(false);
@@ -37,7 +38,7 @@ function Booking() {
       }
       if (index === data.length - 2) {
         // return answers
-        console.log(answers);
+        // console.log(answers);
       }
       if (index === data.length - 1) {
         navigate('/');
