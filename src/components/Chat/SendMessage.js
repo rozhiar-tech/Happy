@@ -37,18 +37,25 @@ function SendMessage({ scroll}) {
 
   return (
     <div>
+      <div className='flex flex-col px-20 gap-y-4 mb-14 md:text-left text-center'>
+      <h1 className='text-5xl '>We&#39;re here to help 24/7</h1>
+      <p className='text-xl text-gray-700'>Every therapist is a professional in the sphere  and excited to work with you!</p>
+      </div>
       <form onSubmit={sendMessage}>
-        <div className="sendMsg">
-          <input
+        <div className="sendMsg flex flex-col px-20 rounded-2xl   md:items-start md:justify-start items-center  justify-center">
+          <textarea 
             style={{
               width: '78%',
-              fontSize: '15px',
+              fontSize: '18px',
               fontWeight: '550',
               marginLeft: '5px',
-              height: '40px',
-              marginTop: '70px',
+              height: '350px',
+              marginTop: '20px',
+              padding: '5px',
+              border: '2px solid gray',
+              
             }}
-            placeholder="Message..."
+            placeholder="Please enter your question" 
             type="text"
             value={msg}
             onChange={(e) => setMsg(e.target.value)}
@@ -56,10 +63,13 @@ function SendMessage({ scroll}) {
           <button
             style={{
               width: '18%',
-              fontSize: '15px',
+              fontSize: '20px',
               fontWeight: '550',
-              margin: '4px 5% -13px 5%',
+              margin: '40px 5% 110px 0px',
               maxWidth: '200px',
+              background: '#2193b0',
+              padding: '10px 10px',
+              borderRadius: '10px'
 
             }}
             type="submit"
