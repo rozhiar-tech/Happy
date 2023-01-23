@@ -17,8 +17,8 @@ const Chat = () => {
 
   React.useEffect(() => {
     const q = query(collection(db, 'messages'), orderBy('createdAt'), limit(25));
-    const unsubscribe = onSnapshot(q, (querySnapshot, e) => {
-      e.preventDefault()
+    const unsubscribe = onSnapshot(q, (querySnapshot, ) => {
+      // e.preventDefault()
       const messagess = [];
       querySnapshot.forEach((doc) => {
         messagess.push(doc.data());
@@ -27,7 +27,7 @@ const Chat = () => {
     });
 
     return unsubscribe;
-  }, [messages]);
+  }, []);
 
 
 

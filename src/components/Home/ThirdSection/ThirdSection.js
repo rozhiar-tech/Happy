@@ -25,8 +25,10 @@ const ThirdSection = () => {
             call and talk your heart out!
           </p>
         </NavLink>
-        <NavLink to="/chat"
-         className="flex flex-col items-center gap-4 border border-vodka rounded-2xl shadow-xl shadow-vodka/25 hover:scale-95 focus:scale-95 ease-in-out duration-300 w-[23rem] max-w-full min-h-[21.875rem] h-fit pt-[3rem]">
+        <NavLink
+          to="/chat"
+          className="flex flex-col items-center gap-4 border border-vodka rounded-2xl shadow-xl shadow-vodka/25 hover:scale-95 focus:scale-95 ease-in-out duration-300 w-[23rem] max-w-full min-h-[21.875rem] h-fit pt-[3rem]"
+        >
           <img src={chat} alt="Chat" className="w-[5.625rem] h-[5.625rem]" />
           <h4 className="text-[2.5rem] leading-[4.7rem] w-fit max-w-full">
             Chat
