@@ -27,7 +27,6 @@ function Resources() {
       setSubStatus(() => 'Success');
     } catch (error) {
       setSubStatus(() => 'error');
-      console.log(error);
     }
   }
 
