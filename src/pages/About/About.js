@@ -3,7 +3,7 @@ import rectangle from './rectangle.svg';
 
 const About = () => {
   return (
-    <div className="flex flex-col">
+    <div data-testid="aboutPage" className=" flex flex-col">
       <div className="my-20 max-w-6xl mx-auto px-4">
         <div className=" md:text-left text-center">
           <h1 className=" mb-2 text-5xl ">HEALING!</h1>
@@ -20,7 +20,7 @@ const About = () => {
         </p>
       </div>
 
-      <div className="md:flex flex-row items-center  justify-center gap-10 bg-light-blue md:px-6 py-8 pb-20 sm:grid sm:grid-cols-1">
+      <div className="md:flex flex-row items-center  justify-center gap-10 bg-vodka opacity-[90%] md:px-6 py-8 pb-20 sm:grid sm:grid-cols-1">
         <img
           src={rectangle}
           alt="founder"
