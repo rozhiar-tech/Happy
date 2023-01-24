@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import RingLoader from 'react-spinners/RingLoader';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { auth, db } from './firebase/firebaseinit';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
+import PrivateRoutesSignedIn from './utils/PrivateRoutesSignedIn';
+import PrivateRoutesSignedInRestrict from './utils/PrivateRoutesSignedInRestrict';
+import PrivateRoutesUser from './utils/PrivateRoutesUser';
+import PrivateRoutesTherapist from './utils/PrivateRoutesTherapist';
 import Home from './pages/Home';
 import Contact from './pages/Contact/Contact';
 import Payment from './pages/Payment/Payment';
@@ -23,10 +27,9 @@ import Card from './pages/new-card/card';
 import TherapistProfile from './pages/editProfile/TherapistProfile';
 import Booking from './pages/Booking/Booking';
 import Chat from './components/Chat/Chat';
-import Gratitude from './components/Gratitude';
+import UserProfile from './pages/editProfile/UserProfile';
 
 function App() {
-  const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
   // The below variable will hold the user id if they are logged in
   const [userID, setuserID] = useState(false);
@@ -47,6 +50,7 @@ function App() {
         } else {
           setIsTherapist(() => true);
         }
+        setIsLoading(() => false);
       });
     }
   }, [userID]);
@@ -61,9 +65,12 @@ function App() {
         setIsUser(() => false);
         setIsTherapist(() => false);
       }
-      setIsLoading(() => false);
+      // signOut(auth);
     });
   }, []);
+
+  console.log(isUser);
+  console.log(isTherapist);
 
   return (
     <div className="flex flex-col min-h-screen w-screen">
@@ -78,7 +85,7 @@ function App() {
         />
       ) : (
         <Routes>
-          {/* These routes are available for everyone to visit */}
+          {/* _These routes are available for everyone to visit_ */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/resources" element={<Resources />} />
@@ -86,49 +93,36 @@ function App() {
           <Route path="/career" element={<Career />} />
           <Route path="/requirements" element={<Requirements />} />
           <Route path="/contact" element={<Contact />} />
-          {/* ------------------------------------------------- */}
+          {/* ___________________________________________________________ */}
 
-          {/* These routes are available for NOT logged in individuals */}
-          {!userID ? (
-            <>
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/TherapistAccount" element={<TherapistAccount />} />
-            </>
-          ) : (
+          <Route element={<PrivateRoutesSignedIn isAuth={userID} />}>
+            {/* _These routes are available for logged in individuals_ */}
+            <Route path="/chat" element={<Chat />} />
+            {/* ___________________________________________________________ */}
+          </Route>
+          <Route element={<PrivateRoutesSignedInRestrict isAuth={userID} />}>
+            {/* _These routes are NOT available for logged in individuals_ */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/createAccount" element={<TherapistAccount />} />
+            {/* ___________________________________________________________ */}
+          </Route>
+          <Route element={<PrivateRoutesUser isUser={isUser} />}>
+            {/* _These routes are only available for logged in USERS_ */}
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/card" element={<Card />} />
+            <Route path="/booking" element={<Booking />} />
+            <Route path="/userprofile" element={<UserProfile />} />
+            {/* ___________________________________________________________ */}
+          </Route>
+          <Route element={<PrivateRoutesTherapist isTherapist={isTherapist} />}>
+            {/* These routes are available for only logged in THERAPISTS */}
             <Route
-              path={location.pathname}
-              element={
-                <Gratitude
-                  title="You Are Already Logged In!"
-                  message="Please sign out first."
-                />
-              }
-            />
-          )}
-          {/* ---------------------------------------------------- */}
-
-          {/* These routes are available for logged in individuals */}
-          {userID && <Route path="/chat" element={<Chat />} />}
-          {/* ---------------------------------------------------- */}
-
-          {/* These routes are only available for logged in USERS */}
-          {isUser && (
-            <>
-              <Route path="/payment" element={<Payment />} />
-              <Route path="/card" element={<Card />} />
-              <Route path="/booking" element={<Booking />} />
-            </>
-          )}
-          {/* ---------------------------------------------------- */}
-          {/* These routes are available for only logged in THERAPISTS */}
-          {isTherapist && (
-            <Route
-              path="/profile"
+              path="/therapistprofile"
               element={<TherapistProfile data={userInfo} />}
             />
-          )}
-          {/* ---------------------------------------------------- */}
+            {/* ---------------------------------------------------- */}
+          </Route>
 
           {/* To be removed. Use Gratitude component in the related pages instead */}
           <Route path="/afterpayment" element={<AfterPayment />} />
