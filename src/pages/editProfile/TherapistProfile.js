@@ -5,7 +5,6 @@ import defaultPic from './defaultPic.svg';
 import editIcon from './editIcon.svg';
 
 function TherapistProfile({ data }) {
-  console.log(data);
   const [formInput, setFormInput] = useState({
     fullName: data.firstName,
     bio: '',
