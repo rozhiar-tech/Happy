@@ -5,6 +5,9 @@ import { getAuth ,createUserWithEmailAndPassword } from "firebase/auth";
 import {  setDoc, getFirestore,doc } from "firebase/firestore";
 import app from "../../firebase/firebaseinit";
 import signupImage from "./SignupImag.png";
+import line from './line.svg'
+import facebook from './facebook.svg'
+import google from './google.svg'
 
 
 const auth = getAuth(app);
@@ -80,12 +83,14 @@ function SignUp(){
     
     
     return (
-        <div className="h-screen bg-vodka flex  lg:flex lg:justify-evenly md:flex-row md:justify-evenly  flex-col items-center w-screen">
-        <img src={signupImage} alt="therapy" className="md:h-3/6 mt-14 h-[25%] w-[60%] "/>
+        <div className="mt-10 mb-24 flex  justify-center flex-wrap items-center w-screen">
+        <img src={signupImage} alt="therapy" className="md:h-3/6  h-[25%] w-[40%] hidden lg:flex"/>
             
-
-            <div className="bg-white h-[500px] w-[500px] rounded-lg md:m-24 shadow-lg px-11 flex justify-between mb-10 ">
-            <form onSubmit={handleSubmit} className="flex flex-col  justify-evenly">
+            <div className="flex flex-col">
+                <h1 className="text-5xl  px-[5.25rem] text-center md:text-left uppercase mb-14">Signup now</h1>
+            
+            <div className="bg-white h-[380px] w-[500px] rounded-lg m-14 shadow-2xl px-8 flex  justify-between  ">
+            <form onSubmit={handleSubmit} className="flex flex-col  justify-evenly pt-10 gap-y-3">
                 <div className="flex  justify-evenly">
                 <input
                     required
@@ -141,7 +146,7 @@ function SignUp(){
                 />
                 </div>
                 <div className="flex justify-between">
-                <p className="text-gray-500 text-sm">Birth date</p>
+                <p className="text-gray-500 ml-2 text-sm">Birth date</p>
                 
                  <input type="date" className="w-48 h-[65px] p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md" 
                     value={birthDate}
@@ -151,7 +156,7 @@ function SignUp(){
                  />
                 </div>
             {error && <p>{error}</p>}
-            <div className="">
+            <div className="flex mb-10 mt-2 gap-x-4 mx-auto">
 
                 <button type="button" onClick={senToLogin} disabled={loading} className="bg-lavender-indigo hover:bg-wild-strawberry/70 focus:bg-wild-strawberry/70 hover:scale-95 focus:scale-95 text-white  py-2 px-4 rounded mr-3 h-[60px] w-[186px]">
                     Login
@@ -164,9 +169,32 @@ function SignUp(){
                     Sign Up
                 </button>
                 </div>
-            </form>
-            </div>
+                <div className="flex justify-around my-3">
+          <img src={line} alt="line" />
+          <span>Or</span>
+          <img src={line} alt="line" />
+        </div>
+        <div className="flex justify-center  gap-x-20">
+          <button type="button">
+            <img
+              className="cursor-pointer"
+              src={facebook}
+              alt="logo"
+            />
+          </button>
 
+          <button type="button">
+            <img
+              className="cursor-pointer w-[30px]"
+              src={google}
+              alt="logo"
+            />
+          </button>
+        </div>
+            </form>
+            
+            </div>
+            </div>
         </div>
     )
 
