@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../components/styles/AfterPayment.css";
+import "./AfterPayment.css";
 
 const  Afterpayment = () => {
     const navigate1 = useNavigate()

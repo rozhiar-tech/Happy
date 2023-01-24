@@ -1,6 +1,7 @@
+.text{
+    margin-top: 10%;
+}
 .text1{
-    font-family: 'Poppins';
-font-style: normal;
 font-weight: 400;
 font-size: 50px;
 }
@@ -13,8 +14,8 @@ font-size: 24px;
 }
 
 #button1{
-    margin-top: 100px;
-    margin-bottom: 80px;
+    margin-top: 300px;
+    margin-bottom: 100px;
     margin-left: 60px;
 }
 
