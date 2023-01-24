@@ -84,10 +84,12 @@ function App() {
           <Route path="/ThankYou" element={<ThankYou />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/card" element={<Card />} />
-          <Route
-            path="/therapistProfile"
-            element={<TherapistProfile data={userInfo} />}
-          />
+          {isTherapist && (
+            <Route
+              path="/profile"
+              element={<TherapistProfile data={userInfo} />}
+            />
+          )}
           <Route path="/booking" element={<Booking />} />
           <Route path="/chat" element={<Chat />} />
         </Routes>

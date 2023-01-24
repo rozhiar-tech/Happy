@@ -1,16 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { setDoc, doc } from 'firebase/firestore';
+import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase/firebaseinit';
 import defaultPic from './defaultPic.svg';
 import editIcon from './editIcon.svg';
 
 function TherapistProfile({ data }) {
+  console.log(data);
   const [formInput, setFormInput] = useState({
-    fullName: data.fullName,
-    bio: data.bio,
-    birthDate: data.birthDate,
+    fullName: data.firstName,
+    bio: '',
+    birthDate: '',
     email: data.email,
-    phoneNumber: data.phoneNumber,
+    phoneNumber: '',
   });
   const [disabled, setDisabled] = useState(true);
   const [isUpdated, setIsUpdated] = useState(false);
@@ -35,8 +36,8 @@ function TherapistProfile({ data }) {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await setDoc(doc(db, 'Users', data), {
-        formInput,
+      await updateDoc(doc(db, 'Users', data.uid), {
+        ...formInput,
       });
       setIsUpdated(() => 'Your Profile is Updated!');
       setDisabled(() => true);
@@ -137,10 +138,10 @@ function TherapistProfile({ data }) {
               type="text"
               id="email"
               name="email"
-              className="text-lg border border-vodka rounded-md shadow-[0_4px_12px_4px] shadow-vodka/25 focus:outline-lavender-indigo disabled:bg-white grow p-4 min-w-0 min-h-16"
+              className="text-lg border border-vodka rounded-md shadow-[0_4px_12px_4px] shadow-vodka/25 focus:outline-lavender-indigo grow p-4 min-w-0 min-h-16"
               value={formInput.email}
               onChange={handleFormInput}
-              disabled={disabled ? 'disabled' : ''}
+              disabled
             />
           </div>
           <div className="flex gap-4">
