@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RingLoader from 'react-spinners/RingLoader';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { auth, db } from './firebase/firebaseinit';
@@ -33,6 +33,7 @@ import Card from './pages/new-card/card';
 import Booking from './pages/Booking/Booking';
 
 function App() {
+  const { pathname } = useLocation();
   const [isLoading, setIsLoading] = useState(true);
   // The below variable will be true if therapistAccount was successfully created
   const [isTherapistAccountCreated, setIsTherapistAccountCreated] =
@@ -46,6 +47,10 @@ function App() {
   const [isUser, setIsUser] = useState(false);
   // The below variable will be true if the user is logged in and their role is 'therapist'
   const [isTherapist, setIsTherapist] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     if (userID) {
@@ -131,7 +136,7 @@ function App() {
           </Route>
           <Route element={<PrivateRoutesUser isUser={isUser} />}>
             {/* _These routes are only available for logged in USERS_ */}
-            <Route path="/payment" element={<Payment />} />
+            <Route path="/purchase" element={<Payment />} />
             <Route path="/card" element={<Card />} />
             <Route path="/booking" element={<Booking userID={userID} />} />
             {/* ___________________________________________________________ */}
