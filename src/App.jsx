@@ -12,23 +12,26 @@ import PrivateRoutesTherapist from './utils/PrivateRoutesTherapist';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
-import Contact from './pages/Contact/Contact';
-import Payment from './pages/Payment/Payment';
-import AfterPayment from './pages/AfterPayment/AfterPayment';
-import Login from './pages/Login/Login';
-import Signup from './pages/SignUp/SignUp';
 import About from './pages/About/About';
-import Team from './pages/Team/team';
-import Requirements from './pages/Requirements/requirement';
-import Career from './pages/Career';
-import TherapistAccount from './pages/TherpistAccountCreate/TherapistAccount';
-import ThankYou from './pages/TherpistAccountCreate/ThankYou';
 import Resources from './pages/Resources/Resources';
-import Card from './pages/new-card/card';
-import TherapistProfile from './pages/editProfile/TherapistProfile';
-import Booking from './pages/Booking/Booking';
+import Team from './pages/Team/team';
+import Career from './pages/Career';
+import Requirements from './pages/Requirements/requirement';
+import Contact from './pages/Contact/Contact';
+
 import Chat from './components/Chat/Chat';
 import UserProfile from './pages/editProfile/UserProfile';
+import TherapistProfile from './pages/editProfile/TherapistProfile';
+
+import Login from './pages/Login/Login';
+import Signup from './pages/SignUp/SignUp';
+import TherapistAccount from './pages/TherpistAccountCreate/TherapistAccount';
+
+import Payment from './pages/Payment/Payment';
+import Card from './pages/new-card/card';
+import Booking from './pages/Booking/Booking';
+
+import ThankYou from './pages/TherpistAccountCreate/ThankYou';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -124,12 +127,10 @@ function App() {
           </Route>
           <Route element={<PrivateRoutesTherapist isTherapist={isTherapist} />}>
             {/* These routes are available for only logged in THERAPISTS */}
-
-            {/* ---------------------------------------------------- */}
+            {/* ___________________________________________________________ */}
           </Route>
 
           {/* To be removed. Use Gratitude component in the related pages instead */}
-          <Route path="/afterpayment" element={<AfterPayment />} />
           <Route path="/ThankYou" element={<ThankYou />} />
           {/* ---------------------------------------------------- */}
         </Routes>
