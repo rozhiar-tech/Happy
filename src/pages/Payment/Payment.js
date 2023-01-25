@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { datum } from './images.data';
 import Gratitude from '../../components/Gratitude';
-import './payment.css';
 
 const Payment = () => {
   const [isPayed, setIsPayed] = useState(false);
