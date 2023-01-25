@@ -84,7 +84,7 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen w-screen">
-      <Navbar />
+      <Navbar userID={userID} />
       {isLoading ? (
         <RingLoader
           color="#8A4FFF"
