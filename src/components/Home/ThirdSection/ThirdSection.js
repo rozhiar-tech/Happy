@@ -17,6 +17,7 @@ import video from './video-call.svg';
 const db = getFirestore(app);
 const auth = getAuth(app);
 const ThirdSection = () => {
+  const [, setError] = React.useState('');
   const handleSelectChatToSendidOfUser = async (id) => {
     const combinedId =
       auth.currentUser.uid > id
@@ -52,7 +53,7 @@ const ThirdSection = () => {
         });
       }
     } catch (error) {
-      console.log(error);
+      setError(error.message);
     }
   };
   //   const scrollToTop = () => {
