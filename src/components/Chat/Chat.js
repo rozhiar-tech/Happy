@@ -29,7 +29,6 @@ const Chat = () => {
       setMessages(doc.data().messages);
     });
   }, []);
-  console.log(messages);
 
   return (
     <div>
