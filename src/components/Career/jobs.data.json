@@ -8,38 +8,38 @@
   },
   {
     "id": 2,
-    "jobTitle": "Senior Software Developer | Backend | Remote in the USA",
-    "jobDescription": "Moz is looking for a Senior Software Developer to join our Application Development team.",
+    "jobTitle": "Software Developer | Rapid Prototyping | Remote in",
+    "jobDescription": "Moz is looking for a Senior Software Developer to join our Rapid Prototyping Team (RPT). This team is responsible for working closely with product managers to take ideas for new features and quickly validate their technical and business feasibility.",
     "department": "Engineering",
-    "type": "Application Development"
+    "type": "Rapid Prototyping"
   },
   {
     "id": 3,
-    "jobTitle": "Senior Software Developer | Backend | Remote in the USA",
-    "jobDescription": "Moz is looking for a Senior Software Developer to join our Application Development team.",
+    "jobTitle": "Senior Product Analyst | Remote in Canada",
+    "jobDescription": "Moz is looking for a Product Analyst to define our suite of product metrics.",
     "department": "Engineering",
-    "type": "Application Development"
+    "type": "Business Intelligence"
   },
   {
     "id": 4,
-    "jobTitle": "Senior Software Developer | Backend | Remote in the USA",
-    "jobDescription": "Moz is looking for a Senior Software Developer to join our Application Development team.",
+    "jobTitle": "Business Intelligence Manager | Remote in Canada",
+    "jobDescription": "Moz is hiring a Manager of Business Intelligence to lead our analytics and data warehousing efforts in a new phase of development.",
     "department": "Engineering",
-    "type": "Application Development"
+    "type": "Business Intelligence"
   },
   {
     "id": 5,
-    "jobTitle": "Senior Software Developer | Backend | Remote in the USA",
-    "jobDescription": "Moz is looking for a Senior Software Developer to join our Application Development team.",
+    "jobTitle": "Engineering Manager | Remote in Canada",
+    "jobDescription": "Moz is seeking an Engineering Manager within our Application Development team.",
     "department": "Engineering",
     "type": "Application Development"
   },
   {
     "id": 6,
-    "jobTitle": "Senior Software Developer | Backend | Remote in the USA",
-    "jobDescription": "Moz is looking for a Senior Software Developer to join our Application Development team.",
+    "jobTitle": "Sr. Data Engineer | Remote in Canada",
+    "jobDescription": "Moz is looking for a talented Senior Software Developer to join our Data Collection team.",
     "department": "Engineering",
-    "type": "Application Development"
+    "type": "Data Collection"
   },
   {
     "id": 7,
@@ -50,10 +50,10 @@
   },
   {
     "id": 8,
-    "jobTitle": "Senior Software Developer | Backend | Remote in the USA",
-    "jobDescription": "Moz is looking for a Senior Software Developer to join our Application Development team.",
+    "jobTitle": "Sr. Data Engineer | Remote in Canada",
+    "jobDescription": "Moz is looking for a talented Senior Software Developer to join our Data Collection team.",
     "department": "Engineering",
-    "type": "Application Development"
+    "type": "Data Collection"
   },
   {
     "id": 9,
@@ -64,23 +64,23 @@
   },
   {
     "id": 10,
-    "jobTitle": "Senior Software Developer | Backend | Remote in the USA",
-    "jobDescription": "Moz is looking for a Senior Software Developer to join our Application Development team.",
+    "jobTitle": "Junior Frontend Developer | Recoded Graduate",
+    "jobDescription": "Moz is looking for a junior coder to join our Application Development team.",
     "department": "Engineering",
     "type": "Application Development"
   },
   {
     "id": 11,
-    "jobTitle": "Senior Software Developer | Backend | Remote in the USA",
-    "jobDescription": "Moz is looking for a Senior Software Developer to join our Application Development team.",
+    "jobTitle": "Coding Instructor",
+    "jobDescription": "Moz is looking for a focused instrcuot to join our training team",
     "department": "Engineering",
-    "type": "Application Development"
+    "type": "Education"
   },
   {
     "id": 12,
-    "jobTitle": "Senior Software Developer | Backend | Remote in the USA",
-    "jobDescription": "Moz is looking for a Senior Software Developer to join our Application Development team.",
-    "department": "Engineering",
-    "type": "Application Development"
+    "jobTitle": "Community Organizer",
+    "jobDescription": "Moz is looking for a manager to join program Development team.",
+    "department": "Project Manager",
+    "type": ""
   }
 ]
