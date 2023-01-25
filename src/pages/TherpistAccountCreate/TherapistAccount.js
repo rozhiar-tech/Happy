@@ -48,7 +48,7 @@ function TherapistAccountCreate({ isCreated }) {
         });
 
         isCreated(true);
-        navigate('/accountCreated');
+        navigate('/accountcreated');
 
         // ...
       })

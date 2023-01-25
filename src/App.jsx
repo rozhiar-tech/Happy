@@ -118,7 +118,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route
-              path="/createAccount"
+              path="/createaccount"
               element={
                 <TherapistAccount
                   isCreated={(e) => {
@@ -144,7 +144,7 @@ function App() {
 
           {isTherapistAccountCreated && (
             <Route
-              path="/accountCreated"
+              path="/accountcreated"
               element={
                 <Gratitude
                   title="Thank You for Signing Up!"
