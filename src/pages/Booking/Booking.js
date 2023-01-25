@@ -6,6 +6,7 @@ import data from './booking.data';
 
 function Booking({ userID }) {
   const [currentData, setCurrentData] = useState(data[0]);
+  // eslint-disable-next-line no-unused-vars
   const [answers, setAnswers] = useState({});
   const [isAnswered, setIsAnswered] = useState(false);
   const [isPrompt, setIsPrompt] = useState(false);
