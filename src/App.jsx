@@ -153,6 +153,18 @@ function App() {
               }
             />
           )}
+
+          {/* _Page not found_ */}
+          <Route
+            path="*"
+            element={
+              <Gratitude
+                title="Page Not Found!"
+                message="This page is not available."
+              />
+            }
+          />
+          {/* ___________________________________________________________ */}
         </Routes>
       )}
 
