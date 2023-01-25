@@ -8,6 +8,7 @@ import PrivateRoutesSignedIn from './utils/PrivateRoutesSignedIn';
 import PrivateRoutesSignedInRestrict from './utils/PrivateRoutesSignedInRestrict';
 import PrivateRoutesUser from './utils/PrivateRoutesUser';
 import PrivateRoutesTherapist from './utils/PrivateRoutesTherapist';
+import Gratitude from './components/Gratitude';
 
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
@@ -31,10 +32,12 @@ import Payment from './pages/Payment/Payment';
 import Card from './pages/new-card/card';
 import Booking from './pages/Booking/Booking';
 
-import ThankYou from './pages/TherpistAccountCreate/ThankYou';
-
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  // The below variable will be true if therapistAccount was successfully created
+  const [isTherapistAccountCreated, setIsTherapistAccountCreated] =
+    useState(false);
+
   // The below variable will hold the user id if they are logged in
   const [userID, setuserID] = useState(false);
   // The below variable will hold the user info if they are logged in and will change if they update their profile
@@ -114,7 +117,16 @@ function App() {
             {/* _These routes are NOT available for logged in individuals_ */}
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/createAccount" element={<TherapistAccount />} />
+            <Route
+              path="/createAccount"
+              element={
+                <TherapistAccount
+                  isCreated={(e) => {
+                    setIsTherapistAccountCreated(() => e);
+                  }}
+                />
+              }
+            />
             {/* ___________________________________________________________ */}
           </Route>
           <Route element={<PrivateRoutesUser isUser={isUser} />}>
@@ -122,17 +134,25 @@ function App() {
             <Route path="/payment" element={<Payment />} />
             <Route path="/card" element={<Card />} />
             <Route path="/booking" element={<Booking />} />
-
             {/* ___________________________________________________________ */}
           </Route>
+
           <Route element={<PrivateRoutesTherapist isTherapist={isTherapist} />}>
             {/* These routes are available for only logged in THERAPISTS */}
             {/* ___________________________________________________________ */}
           </Route>
 
-          {/* To be removed. Use Gratitude component in the related pages instead */}
-          <Route path="/ThankYou" element={<ThankYou />} />
-          {/* ---------------------------------------------------- */}
+          {isTherapistAccountCreated && (
+            <Route
+              path="/accountCreated"
+              element={
+                <Gratitude
+                  title="Thank You for Signing Up!"
+                  message="We Have Registered Your Interest in Working With Happy. Our Recruitment Team Will Review Your Application. You Will Hear Form Soon."
+                />
+              }
+            />
+          )}
         </Routes>
       )}
 
