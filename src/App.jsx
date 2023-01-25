@@ -4,12 +4,13 @@ import { Route, Routes } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { auth, db } from './firebase/firebaseinit';
-import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Footer/Footer';
 import PrivateRoutesSignedIn from './utils/PrivateRoutesSignedIn';
 import PrivateRoutesSignedInRestrict from './utils/PrivateRoutesSignedInRestrict';
 import PrivateRoutesUser from './utils/PrivateRoutesUser';
 import PrivateRoutesTherapist from './utils/PrivateRoutesTherapist';
+
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
 import Contact from './pages/Contact/Contact';
 import Payment from './pages/Payment/Payment';
@@ -64,13 +65,11 @@ function App() {
         setuserID(() => false);
         setIsUser(() => false);
         setIsTherapist(() => false);
+        setIsLoading(() => false);
       }
       // signOut(auth);
     });
   }, []);
-
-  console.log(isUser);
-  console.log(isTherapist);
 
   return (
     <div className="flex flex-col min-h-screen w-screen">
@@ -98,6 +97,14 @@ function App() {
           <Route element={<PrivateRoutesSignedIn isAuth={userID} />}>
             {/* _These routes are available for logged in individuals_ */}
             <Route path="/chat" element={<Chat />} />
+            {isUser ? (
+              <Route path="/profile" element={<UserProfile />} />
+            ) : (
+              <Route
+                path="/profile"
+                element={<TherapistProfile data={userInfo} />}
+              />
+            )}
             {/* ___________________________________________________________ */}
           </Route>
           <Route element={<PrivateRoutesSignedInRestrict isAuth={userID} />}>
@@ -112,15 +119,12 @@ function App() {
             <Route path="/payment" element={<Payment />} />
             <Route path="/card" element={<Card />} />
             <Route path="/booking" element={<Booking />} />
-            <Route path="/userprofile" element={<UserProfile />} />
+
             {/* ___________________________________________________________ */}
           </Route>
           <Route element={<PrivateRoutesTherapist isTherapist={isTherapist} />}>
             {/* These routes are available for only logged in THERAPISTS */}
-            <Route
-              path="/therapistprofile"
-              element={<TherapistProfile data={userInfo} />}
-            />
+
             {/* ---------------------------------------------------- */}
           </Route>
 
