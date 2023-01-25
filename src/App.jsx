@@ -39,7 +39,7 @@ function App() {
     useState(false);
 
   // The below variable will hold the user id if they are logged in
-  const [userID, setuserID] = useState(false);
+  const [userID, setUserID] = useState(false);
   // The below variable will hold the user info if they are logged in and will change if they update their profile
   const [userInfo, setUserInfo] = useState(null);
   // The below variable will be true if the user is logged in and their role is 'user'
@@ -66,9 +66,9 @@ function App() {
     // Watch if user is logged in or signed out
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        setuserID(() => user.uid.toString());
+        setUserID(() => user.uid.toString());
       } else {
-        setuserID(() => false);
+        setUserID(() => false);
         setIsUser(() => false);
         setIsTherapist(() => false);
         setIsLoading(() => false);
@@ -133,7 +133,7 @@ function App() {
             {/* _These routes are only available for logged in USERS_ */}
             <Route path="/payment" element={<Payment />} />
             <Route path="/card" element={<Card />} />
-            <Route path="/booking" element={<Booking />} />
+            <Route path="/booking" element={<Booking userID={userID} />} />
             {/* ___________________________________________________________ */}
           </Route>
 
