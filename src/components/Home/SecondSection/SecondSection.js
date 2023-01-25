@@ -1,8 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import image from './section2.png';
 
 const SecondSection = () => {
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0)
+}
   return (
     <div className="style bg-pale-spring-bud px-4 sm:px-16 lg:px-[10.25rem] py-24 break-words w-screen">
       <div className="text-[3.12rem] leading-[4.7rem]">
@@ -22,14 +26,15 @@ const SecondSection = () => {
           communicate whenever and however you want.
         </p>
       </div>
-      <div>
-        <NavLink
+      <div >
+        <Link
           to="/booking"
-          className="bg-lavender-indigo hover:bg-wild-strawberry/70 hover:scale-95 focus:bg-wild-strawberry/70 focus:scale-95 text-white font-bold py-2 px-4 rounded ease-in-out duration-300 w-fit max-w-full mt-6"
+          onClick={scrollToTop}
+          className="bg-lavender-indigo hover:bg-wild-strawberry/70 hover:scale-95 focus:bg-wild-strawberry/70 focus:scale-95 text-white font-bold text-lg py-4 px-4 rounded-2xl  ease-in-out duration-300 w-fit max-w-full mt-10"
           type="button"
         >
           Book An Appointment
-        </NavLink>
+        </Link>
       </div>
     </div>
   );

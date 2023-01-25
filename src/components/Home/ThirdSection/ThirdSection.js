@@ -55,6 +55,9 @@ const ThirdSection = () => {
       console.log(error);
     }
   };
+  //   const scrollToTop = () => {
+  //     window.scrollTo(0, 0)
+  // }
   return (
     <div className="px-4 sm:px-16 lg:px-[10.25rem] py-14  w-screen">
       <h2 className="text-[2.5rem] leading-[4.7rem]">

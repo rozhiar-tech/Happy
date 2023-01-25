@@ -1,12 +1,35 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { ReactComponent as Subscribe } from './subscribe.svg';
+import emailjs from '@emailjs/browser';
+import { doc, updateDoc, arrayUnion } from 'firebase/firestore';
+import { db } from '../../firebase/firebaseinit';
+import subscribe from './subscribe.svg';
 import { ReactComponent as Twitter } from './twitter.svg';
 import { ReactComponent as Facebook } from './facebook.svg';
 import { ReactComponent as Google } from './google.svg';
 
 function Footer() {
   const [email, setEmail] = useState('');
+  const [subStatus, setSubStatus] = useState('Enter your email');
+
+  async function handleSubscription() {
+    const newsletterRef = doc(db, 'newsletter', 'subscribers');
+    try {
+      await updateDoc(newsletterRef, {
+        emails: arrayUnion(email),
+      });
+      await emailjs.send(
+        'service_3cra5kh',
+        'Subscribe_3l6ullq',
+        { email },
+        'x8DrSwr88UA2SW427'
+      );
+      setSubStatus(() => 'Subscribed!');
+      setEmail(() => '');
+    } catch (error) {
+      setSubStatus(() => 'Error: please try Again!');
+    }
+  }
 
   return (
     <footer className="sm:py-4 px-4 sm:px-16 bg-lavender-indigo break-words w-screen h-fit sm:h-60 mt-auto">
@@ -24,12 +47,18 @@ function Footer() {
             <input
               type="text"
               className="text-xl pl-4 focus:outline-lavender-indigo w-[calc(100%-60px)]"
-              placeholder="Enter your e-mail"
+              placeholder={subStatus}
               value={email}
               onChange={(event) => setEmail(() => event.target.value)}
             />
             <div className="flex justify-center items-center cursor-pointer bg-vodka border-l-2 border-pale-spring-bud w-[60px] h-[60px]">
-              <Subscribe />
+              <button type="button" onClick={handleSubscription}>
+                <img
+                  src={subscribe}
+                  alt="Subscribe button"
+                  className="cursor-pointer"
+                />
+              </button>
             </div>
           </div>
         </div>

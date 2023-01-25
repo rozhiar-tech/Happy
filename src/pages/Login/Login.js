@@ -3,6 +3,9 @@ import { useNavigate  } from "react-router-dom";
 import { getAuth ,signInWithEmailAndPassword} from "firebase/auth";
 import app from "../../firebase/firebaseinit";
 import therapy from "./therapy.svg";
+import line from './line.svg'
+import facebook from './facebook.svg'
+import google from './google.svg'
 
 
 const auth = getAuth(app);
@@ -33,11 +36,12 @@ function Login() {
   };
 
   return (
-    <div className="h-screen bg-vodka flex  lg:flex lg:justify-evenly md:flex-row md:justify-evenly  flex-col items-center  w-screen ">
-    
+    <div className=" mt-14 mb-36  flex   justify-center   items-center  w-screen ">
+      <div className="flex flex-col">
+      <h1 className="text-5xl  px-[5.25rem] text-center md:text-left uppercase mb-14">Login</h1>
 
-      <div className="bg-white h-[500px] w-[470px] rounded-lg md:m-24 shadow-lg px-11 flex justify-between  ">
-      <form onSubmit={handleSubmit} className="flex flex-col  justify-evenly">
+      <div className="bg-white h-[230px] w-[470px] rounded-lg md:my-10 md:mr-24 shadow-2xl my-6 px-11 flex justify-between  ">
+      <form onSubmit={handleSubmit} className="flex flex-col  justify-evenly gap-y-10 pt-20">
       <input
             placeholder="Email"
             type="email"
@@ -63,10 +67,34 @@ function Login() {
           SignUp
         </button>
         </div>
+        <div className="flex justify-around my-1">
+          <img src={line} alt="line" />
+          <span>Or</span>
+          <img src={line} alt="line" />
+        </div>
+        <div className="flex justify-center  gap-x-20">
+          <button type="button">
+            <img
+              className="cursor-pointer"
+              src={facebook}
+              alt="logo"
+            />
+          </button>
+
+          <button type="button">
+            <img
+              className="cursor-pointer w-[30px]"
+              src={google}
+              alt="logo"
+            />
+          </button>
+        </div>
       </form>
       </div>  
-      <img src={therapy} alt="therapy" className="md:h-3/6 mt-14 h-[25%] mb-14"/>
-    
+      </div>
+      <div>
+      <img src={therapy} alt="therapy" className="md:h-3/6 mt-14 h-[25%] mb-14 hidden md:hidden lg:flex lg:flex-row"/>
+      </div>
     </div>
   );
 }
