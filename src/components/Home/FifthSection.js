@@ -2,10 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 function FifthSection() {
-
-  const scrollToTop = () => {
-    window.scrollTo(0, 0)
-}
   return (
     <div className="px-4 sm:px-16 lg:px-[10.25rem] py-24 break-words w-screen">
       <div>
@@ -19,8 +15,7 @@ function FifthSection() {
           <h2 className="text-[3.12rem] leading-[4.7rem]">5 TICKETS</h2>
           <p className="text-[2.2rem] leading-[3.3rem]">10$</p>
           <NavLink
-            to="/login"
-            onClick={scrollToTop}
+            to="/payment"
             className="text-2xl leading-[2.25rem] text-white bg-lavender-indigo hover:bg-wild-strawberry/70 hover:scale-95 focus:bg-wild-strawberry/70 focus:scale-95 rounded ease-in-out duration-300 px-[2rem] py-[0.75rem] max-w-full w-fit self-center"
           >
             PURCHASE
@@ -30,8 +25,7 @@ function FifthSection() {
           <h2 className="text-[3.12rem] leading-[4.7rem]">25 TICKETS</h2>
           <p className="text-[2.2rem] leading-[3.3rem]">40$</p>
           <NavLink
-            to="/login"
-            onClick={scrollToTop}
+            to="/payment"
             className="text-2xl leading-[2.25rem] text-white bg-lavender-indigo hover:bg-wild-strawberry/70 hover:scale-95 focus:bg-wild-strawberry/70 focus:scale-95 rounded ease-in-out duration-300 px-[2rem] py-[0.75rem] max-w-full w-fit self-center"
           >
             PURCHASE
@@ -41,8 +35,7 @@ function FifthSection() {
           <h2 className="text-[3.12rem] leading-[4.7rem]">50 TICKETS</h2>
           <p className="text-[2.2rem] leading-[3.3rem]">70$</p>
           <NavLink
-            to="/login"
-            onClick={scrollToTop}
+            to="/payment"
             className="text-2xl leading-[2.25rem] text-white bg-lavender-indigo hover:bg-wild-strawberry/70 hover:scale-95 focus:bg-wild-strawberry/70 focus:scale-95 rounded ease-in-out duration-300 px-[2rem] py-[0.75rem] max-w-full w-fit self-center"
           >
             PURCHASE
@@ -60,7 +53,6 @@ function FifthSection() {
         </p>
         <NavLink
           to="/requirements"
-          onClick={scrollToTop}
           className="text-2xl leading-[2.25rem] text-white bg-lavender-indigo hover:bg-wild-strawberry/70 hover:scale-95 focus:bg-wild-strawberry/70 focus:scale-95 rounded px-[2rem] ease-in-out duration-300 py-[0.75rem] max-w-full w-fit self-center"
         >
           LEARN MORE
