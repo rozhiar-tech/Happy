@@ -128,10 +128,6 @@ function App() {
           <Route path="/afterpayment" element={<AfterPayment />} />
           <Route path="/ThankYou" element={<ThankYou />} />
           {/* ---------------------------------------------------- */}
-
-          {/* Missing component?? */}
-          <Route path="/blogs" element="" />
-          {/*---------------------------------------------------*/}
         </Routes>
       )}
 
