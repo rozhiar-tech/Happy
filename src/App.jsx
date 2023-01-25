@@ -78,7 +78,6 @@ function App() {
         setIsTherapist(() => false);
         setIsLoading(() => false);
       }
-      // signOut(auth);
     });
   }, []);
 
