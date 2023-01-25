@@ -1,32 +1,53 @@
 import React from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import Home from './pages/home';
-import Footer from "./components/Footer/Footer";
-import Navbar from "./components/Home/navbar"
-import './App.css';
-import About from './pages/about'
- import Payment from "./pages/Payment/Payment";
- import Afterpayment from './pages/AfterPayment/AfterPayment';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import Home from './pages/Home';
+import Contact from './pages/Contact/Contact';
+import Payment from './pages/Payment/Payment';
+import AfterPayment from './pages/AfterPayment/AfterPayment';
+import Login from './pages/Login/Login';
+import Signup from './pages/SignUp/SignUp';
+import About from './pages/About/About';
+import Team from './pages/Team/team';
+import Requirements from './pages/Requirements/requirement';
+import Career from './pages/Career';
+import TherapistAccount from './pages/TherpistAccountCreate/TherapistAccount';
+import ThankYou from './pages/TherpistAccountCreate/ThankYou';
+import Resources from './pages/Resources/Resources';
+import Card from "./pages/new-card/card";
+import TherapistProfile from './pages/editProfile/TherapistProfile';
+import Booking from './pages/Booking/Booking';
+import Chat from './components/Chat/Chat';
+
 
 function App() {
   return (
-    <div className="App">
+    <div className="flex flex-col min-h-screen w-screen">
       <BrowserRouter>
         <Navbar />
-
-        {/* Insert navbar Component here */}
         <Routes>
           {/* When components are created, insert them in element */}
           <Route path="/" element={<Home />} />
           <Route path="/blogs" element="" />
           <Route path="/about" element={<About />} />
-          <Route path="/redirect" element={<Navigate to="/payment" />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/payment" element={<Payment />} />
-          <Route path="/redirect" element={<Navigate to="/afterpayment" />} />
-          <Route path="/afterpayment" element={<Afterpayment />} />
-          <Route path="/login" element="" />
+          <Route path="/afterpayment" element={<AfterPayment />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/requirements" element={<Requirements />} />
+          <Route path="/career" element={<Career />} />
+          <Route path="/TherapistAccount" element={<TherapistAccount />} />
+          <Route path="/ThankYou" element={<ThankYou />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route path="/card" element={<Card />} />
+          <Route path="/therapistProfile" element={<TherapistProfile />} />
+          <Route path="/booking" element={<Booking />} />
+          <Route path="/chat" element={<Chat />} />
         </Routes>
-      <Footer />
+        <Footer />
       </BrowserRouter>
     </div>
   );

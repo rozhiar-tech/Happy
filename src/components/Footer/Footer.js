@@ -1,17 +1,40 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { ReactComponent as Subscribe } from './Subscribe.svg';
-import { ReactComponent as Twitter } from './Twitter.svg';
-import { ReactComponent as Facebook } from './Facebook.svg';
-import { ReactComponent as Google } from './Google.svg';
+import emailjs from '@emailjs/browser';
+import { doc, updateDoc, arrayUnion } from 'firebase/firestore';
+import { db } from '../../firebase/firebaseinit';
+import subscribe from './subscribe.svg';
+import { ReactComponent as Twitter } from './twitter.svg';
+import { ReactComponent as Facebook } from './facebook.svg';
+import { ReactComponent as Google } from './google.svg';
 
 function Footer() {
   const [email, setEmail] = useState('');
+  const [subStatus, setSubStatus] = useState('Enter your email');
+
+  async function handleSubscription() {
+    const newsletterRef = doc(db, 'newsletter', 'subscribers');
+    try {
+      await updateDoc(newsletterRef, {
+        emails: arrayUnion(email),
+      });
+      await emailjs.send(
+        'service_3cra5kh',
+        'Subscribe_3l6ullq',
+        { email },
+        'x8DrSwr88UA2SW427'
+      );
+      setSubStatus(() => 'Subscribed!');
+      setEmail(() => '');
+    } catch (error) {
+      setSubStatus(() => 'Error: please try Again!');
+    }
+  }
 
   return (
-    <footer className="sm:py-4 px-6 sm:px-16 bg-lavender-indigo relative bottom-0 left-0 break-words w-screen h-fit sm:h-60">
-      <div className="flex justify-between items-center w-full h-full">
-        <div className="flex flex-col justify-evenly w-6/12 h-full">
+    <footer className="sm:py-4 px-4 sm:px-16 bg-lavender-indigo break-words w-screen h-fit sm:h-60 mt-auto">
+      <div className="flex flex-col xsm:flex-row justify-between items-center w-full h-full">
+        <div className="flex flex-col justify-evenly w-full xsm:w-6/12 h-full">
           <div>
             <h2 className="text-start font-medium text-4xl sm:mb-4">
               Subscribe
@@ -24,16 +47,22 @@ function Footer() {
             <input
               type="text"
               className="text-xl pl-4 focus:outline-lavender-indigo w-[calc(100%-60px)]"
-              placeholder="Enter your e-mail"
+              placeholder={subStatus}
               value={email}
               onChange={(event) => setEmail(() => event.target.value)}
             />
             <div className="flex justify-center items-center cursor-pointer bg-vodka border-l-2 border-pale-spring-bud w-[60px] h-[60px]">
-              <Subscribe />
+              <button type="button" onClick={handleSubscription}>
+                <img
+                  src={subscribe}
+                  alt="Subscribe button"
+                  className="cursor-pointer"
+                />
+              </button>
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-evenly items-center text-center w-6/12 md:w-5/12 lg:w-4/12 h-full">
+        <div className="flex flex-col justify-evenly items-center text-center w-full xsm:w-6/12 md:w-5/12 lg:w-4/12 h-full">
           <div className="flex flex-col md:flex-row justify-between pt-4 text-xl w-full text-black/[0.65]">
             <NavLink
               to="/home"
