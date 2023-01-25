@@ -5,6 +5,10 @@ import chat from './chat.svg';
 import video from './video-call.svg';
 
 const ThirdSection = () => {
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0)
+}
   return (
     <div className="px-4 sm:px-16 lg:px-[10.25rem] py-14  w-screen">
       <h2 className="text-[2.5rem] leading-[4.7rem]">
@@ -27,6 +31,7 @@ const ThirdSection = () => {
         </NavLink>
         <NavLink
           to="/chat"
+          onClick={scrollToTop}
           className="flex flex-col items-center gap-4 border border-vodka rounded-2xl shadow-xl shadow-vodka/25 hover:scale-95 focus:scale-95 ease-in-out duration-300 w-[23rem] max-w-full min-h-[21.875rem] h-fit pt-[3rem]"
         >
           <img src={chat} alt="Chat" className="w-[5.625rem] h-[5.625rem]" />
