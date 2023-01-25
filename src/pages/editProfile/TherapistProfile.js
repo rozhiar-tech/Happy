@@ -1,37 +1,26 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { setDoc, getFirestore, doc } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
-import app from '../../firebase/firebaseinit';
+import { doc, updateDoc } from 'firebase/firestore';
+import { db } from '../../firebase/firebaseinit';
 import defaultPic from './defaultPic.svg';
 import editIcon from './editIcon.svg';
 
-function TherapistProfile() {
+function TherapistProfile({ data }) {
   const [formInput, setFormInput] = useState({
-    fullName: '',
+    fullName: data.firstName,
     bio: '',
     birthDate: '',
-    email: '',
+    email: data.email,
     phoneNumber: '',
   });
+  if (data.bio) setFormInput((prev) => ({ ...prev, bio: data.bio }));
+  if (data.birthDate)
+    setFormInput((prev) => ({ ...prev, birthDate: data.birthDate }));
+  if (data.phoneNumber)
+    setFormInput((prev) => ({ ...prev, phoneNumber: data.phoneNumber }));
+
   const [disabled, setDisabled] = useState(true);
   const [isUpdated, setIsUpdated] = useState(false);
   const inputElement = useRef(null);
-
-  const [user, setUser] = useState(null);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
-
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((userr) => {
-      if (userr) {
-        setUser(userr.uid);
-      } else {
-        setUser(null);
-      }
-    });
-
-    return unsubscribe;
-  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -52,8 +41,8 @@ function TherapistProfile() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await setDoc(doc(db, 'Users', user), {
-        formInput,
+      await updateDoc(doc(db, 'Users', data.uid), {
+        ...formInput,
       });
       setIsUpdated(() => 'Your Profile is Updated!');
       setDisabled(() => true);
@@ -66,7 +55,7 @@ function TherapistProfile() {
     <div className="relative flex flex-col md:flex-row gap-4 px-4 sm:px-16 lg:px-[10.25rem] py-14 break-words w-screen">
       {isUpdated && (
         <p className="absolute top-14 z-10 text-2xl leading-9 text-center border border-vodka rounded-md shadow-[0_4px_12px_4px] shadow-vodka/25 p-4 bg-white before:content-[''] before:absolute before:left-0 before:top-0 before:w-3 before:h-full before:bg-lavender-indigo before:rounded-l-md after:content-[''] after:absolute after:right-0 after:top-0 after:w-3 after:h-full after:bg-lavender-indigo after:rounded-r-md w-[calc(100vw-2rem)] sm:w-[calc(100vw-8rem)] lg:w-[calc(100vw-20.5rem)]">
-          Your Profile is Updated!
+          {isUpdated}
         </p>
       )}
       <div className="relative self-center md:self-start">
@@ -154,10 +143,10 @@ function TherapistProfile() {
               type="text"
               id="email"
               name="email"
-              className="text-lg border border-vodka rounded-md shadow-[0_4px_12px_4px] shadow-vodka/25 focus:outline-lavender-indigo disabled:bg-white grow p-4 min-w-0 min-h-16"
+              className="text-lg border border-vodka rounded-md shadow-[0_4px_12px_4px] shadow-vodka/25 focus:outline-lavender-indigo grow p-4 min-w-0 min-h-16"
               value={formInput.email}
               onChange={handleFormInput}
-              disabled={disabled ? 'disabled' : ''}
+              disabled
             />
           </div>
           <div className="flex gap-4">

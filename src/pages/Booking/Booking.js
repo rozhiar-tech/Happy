@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { doc, setDoc } from 'firebase/firestore';
+import { db } from '../../firebase/firebaseinit';
 import data from './booking.data';
 
-function Booking() {
+function Booking({ userID }) {
   const [currentData, setCurrentData] = useState(data[0]);
   // eslint-disable-next-line no-unused-vars
   const [answers, setAnswers] = useState({});
   const [isAnswered, setIsAnswered] = useState(false);
   const [isPrompt, setIsPrompt] = useState(false);
-  const index = data.indexOf(currentData);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
+  const index = data.indexOf(currentData);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -20,7 +23,10 @@ function Booking() {
     };
   }, [isPrompt]);
 
-  // Change fn name
+  function isChecked(value) {
+    return answers[currentData.question] === value;
+  }
+
   function handleFormInput(e) {
     const { value } = e.target;
     setAnswers((prev) => {
@@ -29,7 +35,7 @@ function Booking() {
     return value ? setIsAnswered(() => true) : setIsAnswered(() => false);
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     if (isAnswered || index >= data.length - 2) {
       if (index < data.length - 1) {
@@ -38,10 +44,17 @@ function Booking() {
       }
       if (index === data.length - 2) {
         // return answers
-        // console.log(answers);
+        try {
+          await setDoc(doc(db, 'bookings', `${userID}`), {
+            ...answers,
+          });
+        } catch (er) {
+          setError(() => er.message);
+        }
       }
       if (index === data.length - 1) {
-        navigate('/');
+        if (error) setCurrentData(() => data[0]);
+        else navigate('/');
       }
     } else {
       setIsPrompt(() => true);
@@ -97,6 +110,7 @@ function Booking() {
                     value={answer.value}
                     className="mr-2"
                     onChange={handleFormInput}
+                    checked={isChecked(answer.value)}
                   />
                   {answer.value}
                 </label>
@@ -116,17 +130,34 @@ function Booking() {
               className="text-2xl leading-[2.25rem] uppercase text-white bg-lavender-indigo hover:bg-wild-strawberry/70 hover:scale-95 focus:bg-wild-strawberry/70 focus:scale-95 rounded ease-in-out duration-300 px-[2rem] py-[0.75rem] max-w-full w-fit self-start mt-auto"
             />
           )}
-          {index >= data.length - 2 && (
+          {index === data.length - 2 && (
             <>
               <h2 className="text-[2rem] leading-[3rem] capitalize text-center">
                 {currentData.question}
               </h2>
-              <p className="text-center text-2xl leading-9 my-28">
+              <p className="capitalize text-center text-2xl leading-9 my-28">
                 {currentData.message}
               </p>
               <input
                 type="submit"
                 value={currentData.btnValue}
+                className="text-2xl leading-[2.25rem] uppercase text-white bg-lavender-indigo hover:bg-wild-strawberry/70 hover:scale-95 focus:bg-wild-strawberry/70 focus:scale-95 rounded ease-in-out duration-300 py-2 px-16 max-w-full w-fit self-center"
+              />
+            </>
+          )}
+          {index >= data.length - 1 && (
+            <>
+              <h2 className="text-[2rem] leading-[3rem] capitalize text-center">
+                {error ? 'Error!' : currentData.question}
+              </h2>
+              <p className="capitalize text-center text-2xl leading-9 my-28">
+                {error
+                  ? `An Error Has Occured: ${error}. Please try again.`
+                  : currentData.message}
+              </p>
+              <input
+                type="submit"
+                value={error ? 'Back to Booking' : currentData.btnValue}
                 className="text-2xl leading-[2.25rem] uppercase text-white bg-lavender-indigo hover:bg-wild-strawberry/70 hover:scale-95 focus:bg-wild-strawberry/70 focus:scale-95 rounded ease-in-out duration-300 py-2 px-16 max-w-full w-fit self-center"
               />
             </>

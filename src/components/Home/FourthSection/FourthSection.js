@@ -1,8 +1,10 @@
 import React from 'react';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 import { data } from './images.data';
 
 const FourthSection = () => {
+  const navigate = useNavigate();
   const slideLeft = () => {
     const slider = document.getElementById('slider');
     slider.scrollLeft -= 380;
@@ -33,6 +35,8 @@ const FourthSection = () => {
               className="cursor-pointer inline-block hover:scale-105 focus:scale-105 ease-in-out duration-300"
               src={item.img}
               alt={item.img}
+              onFocus={() => navigate('/resources')}
+              tabIndex="-10"
             />
           ))}
         </div>
