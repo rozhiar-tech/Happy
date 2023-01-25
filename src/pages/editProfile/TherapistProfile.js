@@ -12,6 +12,12 @@ function TherapistProfile({ data }) {
     email: data.email,
     phoneNumber: '',
   });
+  if (data.bio) setFormInput((prev) => ({ ...prev, bio: data.bio }));
+  if (data.birthDate)
+    setFormInput((prev) => ({ ...prev, birthDate: data.birthDate }));
+  if (data.phoneNumber)
+    setFormInput((prev) => ({ ...prev, phoneNumber: data.phoneNumber }));
+
   const [disabled, setDisabled] = useState(true);
   const [isUpdated, setIsUpdated] = useState(false);
   const inputElement = useRef(null);
