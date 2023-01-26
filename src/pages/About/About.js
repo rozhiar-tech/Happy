@@ -6,7 +6,7 @@ const About = () => {
     <div data-testid="aboutPage" className=" flex flex-col">
       <div className="my-20 max-w-6xl mx-auto px-4">
         <div className=" md:text-left text-center">
-          <h1 className=" mb-2 text-5xl ">HEALING!</h1>
+          <h1 className=" mb-2 text-5xl ">HAPPY!</h1>
           <h4 className="text-gray-400 mb-16">some cool one liner !</h4>
         </div>
         <p className="text-gray-700 text-lg leading-8 text-justify">
@@ -31,7 +31,7 @@ const About = () => {
             Our Founding
           </h1>
           <p className="text-gray-900 text-justify text-lg leading-7 lg:pr-6">
-            Healing was founded by Payam Abubakr in 2021. It was called Healing
+            Happy was founded by Payam Abubakr in 2021. It was called Healing
             Online, and started as a blog and an online community where some of
             the world&#39;s therapists shared their research and ideas. We
             launched the Beginner&#39;s Guide to Therapy and our first study,
