@@ -53,6 +53,7 @@ function UserProfile() {
       data,
     })
       .then(() => {
+        // eslint-disable-next-line no-alert
         alert('Profile Updated');
       })
       .catch((errorr) => {
