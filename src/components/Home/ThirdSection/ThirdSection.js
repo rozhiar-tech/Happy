@@ -27,11 +27,11 @@ const ThirdSection = () => {
       const res = await getDoc(doc(db, 'chats', combinedId));
 
       if (!res.exists()) {
-        // create a chat in chats collection
+        
 
         await setDoc(doc(db, 'chats', combinedId), { messages: [] });
 
-        // create user chats
+        
         await updateDoc(doc(db, 'userChats', auth.currentUser.uid), {
           // eslint-disable-next-line prefer-template
           [combinedId + '.userInfo']: {
