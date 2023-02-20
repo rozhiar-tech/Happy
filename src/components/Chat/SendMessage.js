@@ -4,12 +4,13 @@ import { getAuth } from 'firebase/auth';
 import {
   arrayUnion,
   doc,
-  getFirestore, Timestamp, updateDoc,
+  getFirestore,
+  Timestamp,
+  updateDoc,
 } from 'firebase/firestore';
 import './chat.css';
-import { v4 as uuid } from "uuid";
+import { v4 as uuid } from 'uuid';
 import app from '../../firebase/firebaseinit';
-
 
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -21,17 +22,22 @@ function SendMessage() {
   const sendMessage = async (e) => {
     e.preventDefault();
     const { uid } = auth.currentUser;
-    await updateDoc(doc(db, "chats", "ufZXAFLasufUPKdntYiFcT4QvNW2Mrb92EjXeJRRHGC57swOzv0PoMm2"), {
-      messages: arrayUnion({
-        id: uuid(),
-        text:msg,
-        senderId: uid,
-        date: Timestamp.now(),
-      }),
-    });
+    await updateDoc(
+      doc(
+        db,
+        'chats',
+        'ufZXAFLasufUPKdntYiFcT4QvNW2Mrb92EjXeJRRHGC57swOzv0PoMm2'
+      ),
+      {
+        messages: arrayUnion({
+          id: uuid(),
+          text: msg,
+          senderId: uid,
+          date: Timestamp.now(),
+        }),
+      }
+    );
 
-  
-   
     setMsg('');
     // scroll.current.scrollIntoView({ behavior: 'smooth' });
   };
@@ -56,6 +62,7 @@ function SendMessage() {
               height: '350px',
               marginTop: '20px',
               padding: '5px',
+              paddingBottom: '20px',
               border: '2px solid gray',
             }}
             placeholder="Please enter your question"

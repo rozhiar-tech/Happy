@@ -10,7 +10,7 @@ const About = () => {
           <h4 className="text-gray-400 mb-16">some cool one liner !</h4>
         </div>
         <p className="text-gray-700 text-lg leading-8 text-justify">
-          At Healing, we believe there is a better way to do things. A more
+          At Happy, we believe there is a better way to do things. A more
           valuable way where customers are earned rather than bought. We&#39;re
           obsessively passionate about it, and our mission is to help people
           achieve it. We focus on search engine optimization. It&#39;s one of
@@ -31,7 +31,7 @@ const About = () => {
             Our Founding
           </h1>
           <p className="text-gray-900 text-justify text-lg leading-7 lg:pr-6">
-            Happy was founded by Payam Abubakr in 2021. It was called Healing
+            Happy was founded by Rozhiar Omer in 2023. It was called Happy
             Online, and started as a blog and an online community where some of
             the world&#39;s therapists shared their research and ideas. We
             launched the Beginner&#39;s Guide to Therapy and our first study,
